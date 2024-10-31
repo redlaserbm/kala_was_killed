@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_change_bg",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_change_bg",
+  "parent":{
+    "name":"Textbox",
+    "path":"folders/Scripts/Textbox.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
