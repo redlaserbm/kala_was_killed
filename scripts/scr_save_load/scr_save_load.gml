@@ -4,13 +4,14 @@
 function scr_game_save(){
 	
 	// To begin, let's perform one last update of the game's state (as a way of double-checking things)
-	scr_update(obj_game.state);
+	// scr_update(obj_game.state);
 	
 	// Next, let's copy the state struct from obj_interactable
 	var _game_data = variable_clone(obj_game.state);
 	
-	// For now, obj_game has its own set of flags for tracking game progress...
-	// But we should consider moving these to obj_interactable instead.
+	if instance_number(obj_textbox) < 1 {
+		_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1};	
+	}
 	
 	_game_data.current_room = room_get_name(room);
 	

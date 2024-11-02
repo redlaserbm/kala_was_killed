@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_dialogue",
+  "%Name":"scr_item_examination",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_dialogue",
+  "name":"scr_item_examination",
   "parent":{
     "name":"Dictionaries",
     "path":"folders/Scripts/Dictionaries.yy",

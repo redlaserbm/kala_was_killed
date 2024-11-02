@@ -104,6 +104,11 @@ if active {
 				}
 			} else if hover_pos == -1 {
 				click_pos = -1;	
+			} else if (hover_pos == click_pos) && (click_timer < double_click_threshold) {
+				// We have clicked on the same item as before. If we clicked fast enough, we have double-clicked!
+				// In this case, let's examine the object in more detail.
+				scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+				click_pos = -1;
 			}
 		}
 	}
@@ -116,6 +121,10 @@ if active {
 		var _drawtext = scr_inventory_description(state.inventory[hover_pos]);
 		draw_set_color(global.main_font_color);
 		draw_text_ext(_inv_x + textbox_x_offset + text_border_x, _inv_y +  textbox_y_offset + text_border_y, _drawtext, line_sep, line_width);
+	}
+	
+	if _click {
+		click_timer = 0;	
 	}
 }
 

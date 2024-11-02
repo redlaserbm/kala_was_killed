@@ -8,11 +8,11 @@ function scr_inventory_description(_text_id){
 			break;
 			
 		case "Chocolate cake":
-			_return_text = "Mmm..Food! But also bound to give you diabetes. Seriously, have you checked how much sugar is in this thing?";
+			_return_text = "Mm..Food! But also bound to give you diabetes. Seriously, have you checked how much sugar is in this thing?";
 			break;
 			
 		case "Sliced cake":
-			_return_text = "Mmm..Food! Still bound to give you diabetes, but it's easier to share with your friends now.";
+			_return_text = "Mm..Food! Still bound to give you diabetes, but it's easier to share with your friends now.";
 	}
 	return _return_text;
 }

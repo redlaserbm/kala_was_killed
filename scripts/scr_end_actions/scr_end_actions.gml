@@ -65,3 +65,14 @@ function scr_atmosphere(_bg = ds_map_find_value(global.room_bg, room), _snd = ds
 		}
 	}
 }
+
+function scr_open_inventory() {
+	var _method = function() {
+		with (obj_inventory) {
+			scr_activate();	
+		}
+		instance_destroy();
+	}
+	array_push(end_action, _method);
+		
+}

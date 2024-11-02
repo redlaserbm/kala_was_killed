@@ -1,4 +1,15 @@
 {
-  "FolderOrderSettings":[],
-  "ResourceOrderSettings":[],
+  "FolderOrderSettings":[
+    {"name":"Inventory","order":3,"path":"folders/Scripts/Inventory.yy",},
+    {"name":"Items","order":4,"path":"folders/Scripts/Items.yy",},
+    {"name":"Storage","order":5,"path":"folders/Scripts/Storage.yy",},
+    {"name":"Dictionaries","order":7,"path":"folders/Scripts/Dictionaries.yy",},
+    {"name":"Textbox","order":6,"path":"folders/Scripts/Textbox.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"scr_activate","order":1,"path":"scripts/scr_activate/scr_activate.yy",},
+    {"name":"scr_copy_struct","order":2,"path":"scripts/scr_copy_struct/scr_copy_struct.yy",},
+    {"name":"scr_flag","order":1,"path":"scripts/scr_flag/scr_flag.yy",},
+    {"name":"scr_item_examination","order":1,"path":"scripts/scr_item_examination/scr_item_examination.yy",},
+  ],
 }

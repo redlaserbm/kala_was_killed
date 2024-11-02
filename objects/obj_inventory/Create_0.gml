@@ -74,3 +74,4 @@ textbox_spr_w = sprite_get_width(textbox_spr);
 textbox_spr_h = sprite_get_height(textbox_spr);
 
 click_timer = 0;
+double_click_threshold = 20;
