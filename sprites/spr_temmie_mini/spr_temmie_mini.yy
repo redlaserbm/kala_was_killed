@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"minis",
-    "path":"folders/Sprites/minis.yy",
+    "name":"portraits",
+    "path":"folders/Sprites/minis/portraits.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

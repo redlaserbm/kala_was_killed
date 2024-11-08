@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Posters",
-    "path":"folders/Objects/Items/Posters.yy",
+    "path":"folders/Objects/Items/Legacy/Posters.yy",
   },
   "parentObjectId":{
     "name":"obj_interactable",

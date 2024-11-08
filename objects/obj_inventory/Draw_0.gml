@@ -102,13 +102,16 @@ if active {
 				} else {
 					click_pos = hover_pos;	
 				}
-			} else if hover_pos == -1 {
+			} else if hover_pos == -1 && (obj_menu.hover_pos == noone) {
 				click_pos = -1;	
-			} else if (hover_pos == click_pos) && (click_timer < double_click_threshold) {
+			} else if (hover_pos == click_pos) {
+				if (click_timer < double_click_threshold) {
+					scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+				} else {
+					click_pos = -1;
+				}
 				// We have clicked on the same item as before. If we clicked fast enough, we have double-clicked!
 				// In this case, let's examine the object in more detail.
-				scr_textbox_create(state.inventory[click_pos], scr_item_examination);
-				click_pos = -1;
 			}
 		}
 	}
@@ -125,6 +128,33 @@ if active {
 	
 	if _click {
 		click_timer = 0;	
+	}
+} else {
+	// If the inventory is inactive, display the item that is currently equipped, if such an item exists.	
+	
+	// To avoid screen clutter
+	var _cluttered = false;
+	for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
+		var _item = instance_find(obj_interactable, _i);
+		if _item.active {
+			_cluttered = true;	
+		}
+	}
+	
+	// click_pos gives the index of the actively equipped item
+	if (click_pos != -1) && !_cluttered {
+		var _subimg = ds_map_find_value(global.item_equip, state.inventory[click_pos]);
+		
+		if !is_undefined(_subimg) {
+			// Draw a background for the item to appear on
+			var _x = eq_offset_x - eq_width;
+			var _y = eq_offset_y - eq_height;
+		
+			draw_sprite_ext(textbox_spr, 0, eq_offset_x - eq_width, eq_offset_y - eq_height, eq_width/textbox_spr_w, eq_height/textbox_spr_h, 0, make_color_rgb(255,255,255), global.textbox.alpha);	
+	
+			// Draw the equipped item
+			draw_sprite(spr_item_equipped, _subimg, _x + 6, _y + 6);
+		}
 	}
 }
 

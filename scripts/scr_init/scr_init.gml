@@ -1,5 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
+// Puts the correct name to the correct speaker in dialogue
 speaker = ds_map_create();
 ds_map_add(speaker, spr_temmie, "Temmie");
 ds_map_add(speaker, spr_laser, "Laser");
@@ -17,6 +19,11 @@ map_settings = ds_map_create();
 ds_map_add(map_settings, "Music Volume", "volume_music");
 ds_map_add(map_settings, "SFX Volume", "volume_sfx");
 ds_map_add(map_settings, "Master Volume", "volume");
+
+// Helps obj_inventory draw the correct item when the inventory is not pulled up
+// The range is a set of integers corresponding to subimages within spr_item_equipped
+item_equip = ds_map_create();
+ds_map_add(item_equip, "Temmie's knife", 0);
 
 // What font will we use for drawing text? What color should that font be?
 main_font = fnt_ocr;

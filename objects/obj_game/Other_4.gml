@@ -16,6 +16,11 @@ if (room == rm_elevator) && !state.flags.elevator_started {
 	scr_textbox_create("scenario");
 }
 
+if room == rm_road && !state.flags.police_report {
+	state.flags.police_report = true;
+	scr_textbox_create("police_report", scr_crime_scene);
+}
+
 if (room = rm_slider) {
 	instance_create_depth(100,100,0, obj_slider, {variable_name: "volume", struct_name: global.settings});	
 }

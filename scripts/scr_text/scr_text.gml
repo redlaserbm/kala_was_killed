@@ -35,3 +35,10 @@ function scr_draw_sprite(_spr, _img, _x, _y){
 	}
 	return _method
 }
+
+function scr_force_go() {
+	var _method = function() {
+		force_go = true;	
+	}
+	return _method;
+}

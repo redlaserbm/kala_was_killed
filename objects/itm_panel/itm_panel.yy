@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Panel",
-    "path":"folders/Objects/Items/Panel.yy",
+    "path":"folders/Objects/Items/Legacy/Panel.yy",
   },
   "parentObjectId":{
     "name":"obj_interactable",

@@ -146,8 +146,9 @@ if active {
 		// If options dialogue is NOT present, advance the dialogue upon clicking.
 		// If options dialogue is present, advance the dialogue provided that we click on an option.
 		// For presentation's sake, do not allow the player to advance dialogue while the game is transitioning from background to background.
-		if ((accept_key && !_display_options) || (accept_key && _display_options && option_pos != noone)) && timer > 2 && global.fade_time == 0 {
+		if force_go || ((accept_key && !_display_options) || (accept_key && _display_options && option_pos != noone)) && timer > 2 && global.fade_time == 0 {
 			// Has all the text for the current page displayed yet?
+			force_go = false;
 			if draw_char < text_length[page] {
 				// No. This skips the typing effect and writes out all the text immediately
 				draw_char = text_length[page];

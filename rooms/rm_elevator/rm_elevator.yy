@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"rm_elevator",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/rm_elevator/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
@@ -14,8 +14,8 @@
   ],
   "name":"rm_elevator",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Legacy Rooms",
+    "path":"folders/Rooms/Legacy Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

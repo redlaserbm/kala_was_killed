@@ -50,3 +50,15 @@ function scr_add_items(_new_items){
 		state.inventory[_i + _j] = _new_items[_j];
 	}
 }
+
+// Checks whether an item of the given name exists in the player's inventory. Returns booleans
+function scr_check_item(_name) {
+	var _exists = false;
+	for (var _i = 0; _i < array_length(state.inventory); _i++) {
+		if state.inventory[_i] == _name {
+			_exists = true;
+			break;
+		}
+	}
+	return _exists;
+}

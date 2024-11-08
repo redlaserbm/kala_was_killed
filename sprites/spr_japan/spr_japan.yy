@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"bgs",
-    "path":"folders/Sprites/bgs.yy",
+    "name":"Legacy",
+    "path":"folders/Sprites/bgs/Legacy.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -13,6 +13,11 @@ function scr_inventory_description(_text_id){
 			
 		case "Sliced cake":
 			_return_text = "Mm..Food! Still bound to give you diabetes, but it's easier to share with your friends now.";
+			break;
+			
+		case "Car key":
+			_return_text = "Vroom Vroom. Oh also you kinda need this to unlock the car in this crime scene.";
+			break;
 	}
 	return _return_text;
 }

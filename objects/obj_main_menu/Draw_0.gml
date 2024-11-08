@@ -9,7 +9,7 @@ switch (menu_pos) {
 	case 0:
 		switch (option_pos) {
 			case 0:
-				room_goto(rm_elevator);
+				room_goto(rm_road);
 				instance_destroy();
 				break;
 			

@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_item_combo",
+  "%Name":"scr_crime_scene",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_item_combo",
+  "name":"scr_crime_scene",
   "parent":{
-    "name":"Inventory",
-    "path":"folders/Scripts/Inventory.yy",
+    "name":"Dictionaries",
+    "path":"folders/Scripts/Dictionaries.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

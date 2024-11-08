@@ -32,7 +32,9 @@ state = {
 state.flags = {
 	elevator_complete: false,
 	elevator_rumble: false,
-	elevator_started: false
+	elevator_started: false,
+	
+	police_report: false
 }
 
 music_fade_time = 2; // Controls how long it takes for music to fade in seconds

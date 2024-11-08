@@ -11,6 +11,10 @@ state.inventory[1] = "Chocolate cake";
 display = false;
 setup = false;
 
+// -------
+// Parameters for inventory display when active
+// -------
+
 inv_offset_x = 0;
 inv_offset_y = 50;
 
@@ -25,6 +29,15 @@ inv_border_y = 30;
 // We will use this to automatically determine the spacing to apply between items in the inventory menu
 inv_items_x = 2;
 inv_items_y = 5;
+
+// -------
+// Parameters for inventory display when inactive
+// -------
+eq_offset_x = 640;
+eq_offset_y = 480;
+
+eq_height = global.textbox.height;
+eq_width = global.textbox.height;
 
 // Which item are we hovered over?
 hover_pos = -1;

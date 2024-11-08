@@ -17,8 +17,8 @@
   ],
   "name":"rm_leif",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Legacy Rooms",
+    "path":"folders/Rooms/Legacy Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
