@@ -2,11 +2,15 @@
 // You can write your code in this editor
 event_inherited();
 
-// This is the actual inventory we have access to. 
-state.inventory = [];
+// This is the actual inventory we have access to.
+if !struct_exists(state, "inventory") {
+	state.inventory = [];
 
-state.inventory[0] = "Temmie's knife";
-state.inventory[1] = "Chocolate cake";
+	state.inventory[0] = "Temmie's knife";
+	state.inventory[1] = "Chocolate cake";
+}
+
+show_debug_message(state.inventory);
 
 display = false;
 setup = false;

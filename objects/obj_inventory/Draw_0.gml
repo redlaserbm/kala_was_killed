@@ -94,14 +94,8 @@ if active {
 				var _item_1 = ds_map_find_value(global.item_index, state.inventory[hover_pos]);
 				var _item_2 = ds_map_find_value(global.item_index, state.inventory[click_pos]);
 				
-				if (!is_undefined(_item_1)) && (!is_undefined(_item_2)) {
-					var _new_items = global.item_combo[# min(_item_1, _item_2), max(_item_1, _item_2)];
-					if typeof(_new_items) == "array" {
-						scr_add_items(_new_items);
-					}
-				} else {
-					click_pos = hover_pos;	
-				}
+				scr_combine_items(_item_1, _item_2);
+				
 			} else if hover_pos == -1 && (obj_menu.hover_pos == noone) {
 				click_pos = -1;	
 			} else if (hover_pos == click_pos) {

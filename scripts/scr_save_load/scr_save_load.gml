@@ -10,7 +10,7 @@ function scr_game_save(){
 	var _game_data = variable_clone(obj_game.state);
 	
 	if instance_number(obj_textbox) < 1 {
-		_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1};	
+		_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1, dictionary: "default"};	
 	}
 	
 	_game_data.current_room = room_get_name(room);
@@ -34,19 +34,14 @@ function scr_game_load(){
 	
 	//If the player is viewing any text, immediately destroy the textbox without running its associated end actions
 	var _i = 0;
-	var _textboxes = array_create(0);
-	for (_i = 0; _i < instance_number(obj_textbox); _i++) {
+	for (_i = instance_number(obj_textbox) - 1; _i > -1 ; _i--) {
 		var _textbox = instance_find(obj_textbox, _i);
 		_textbox.force_destroy = true;
-		array_push(_textboxes, _textbox);
-	}
-	
-	for (_i = 0; _i < array_length(_textboxes); _i++) {
-		instance_destroy(_textboxes[_i]);
+		instance_destroy(_textbox);
 	}
 	
 	// Next, destroy any other interactable object in the room
-	for (_i = 0; _i < instance_number(obj_interactable); _i++) {
+	for (_i = instance_number(obj_interactable) - 1; _i > -1 ; _i--) {
 		var _item = instance_find(obj_interactable,_i);
 		instance_destroy(_item);
 	}
@@ -82,7 +77,7 @@ function scr_game_load(){
 	if _load_array.obj_textbox.text_id != "-1" {
 		
 		// Create the textbox and skip to the page they were viewing
-		scr_textbox_create(_load_array.obj_textbox.text_id);
+		scr_textbox_create(_load_array.obj_textbox.text_id, _load_array.obj_textbox.dictionary);
 		with (obj_textbox) {
 			page = _load_array.obj_textbox.page;
 		

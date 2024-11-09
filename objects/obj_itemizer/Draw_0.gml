@@ -45,33 +45,38 @@ for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
 	}
 }
 
+var _old_ind = highlighted_ind;
 if _can_explore {
 	var _mx = mouse_x;
 	var _my = mouse_y;
 	var _left_click = mouse_check_button_pressed(mb_left);
-
+	
+	highlighted_ind = -1;
 	for (var _i = 0; _i < array_length(active_items); _i++){
-		if collision_point(_mx, _my, active_items[_i], true, true) {	
+		if collision_point(_mx, _my, active_items[_i], true, true) && ((_old_ind == -1) || (_old_ind == _i)) {
+			highlighted_ind = _i;
 			// Draw a version of the sprite that is colored in in some way
-			draw_sprite_ext
-			(
-				object_get_sprite(active_items[_i]),
-				active_items[_i].image_index,
-				0, 0,
-				1, //width
-				1, //height
-				0,
-				make_color_rgb(275,26,66),
-				1
-			);
-			if _left_click {
-				audio_play_sound(snd_click, 1, false, 0.25);
-				with (active_items[_i]) {
-					scr_activate();	
-				}
+		}
+	}
+	
+	if highlighted_ind >= 0 {
+		draw_sprite_ext
+		(
+			object_get_sprite(active_items[highlighted_ind]),
+			active_items[highlighted_ind].image_index,
+			0, 0,
+			1, //width
+			1, //height
+			0,
+			make_color_rgb(275,26,66),
+			0.5
+		);
+		if _left_click {
+			audio_play_sound(snd_click, 1, false, 0.25);
+			with (active_items[highlighted_ind]) {
+				scr_activate();	
 			}
 		}
-		
 	}
 }
 

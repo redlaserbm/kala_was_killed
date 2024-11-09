@@ -18,6 +18,18 @@ function scr_inventory_description(_text_id){
 		case "Car key":
 			_return_text = "Vroom Vroom. Oh also you kinda need this to unlock the car in this crime scene.";
 			break;
+		
+		case "Police report":
+			_return_text = "A summary from police chief Jakkop on what happened to Kala based on an eyewitness account from Leif.";
+			break;
+			
+		case "Road obseration":
+			_return_text = "Inconsistent with the police report, there are no tire tracks on the road that would indicate a car dodging a falling tree.";
+			break;
+			
+		case "Power lines":
+			_return_text = "When the tree fell, it took down power lines with it, meaning that the surrounding area was pitch black at the time of the crash.";
+			break;
 	}
 	return _return_text;
 }

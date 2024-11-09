@@ -55,6 +55,27 @@ function scr_flag(_name, _instant = false, _value = true){
 	}
 }
 
+function scr_remove_from_room(_room, _item){
+	// Removes item _item from being shown in room _room
+	e_room = _room;
+	e_item = _item;
+	var _method = function() {
+		with obj_itemizer {
+			var _current_item_pool = ds_map_find_value(room_items, other.e_room);
+			for (var _i = 0; _i < array_length(_current_item_pool); _i++) {
+				if _current_item_pool[_i] == other.e_item {
+					array_delete(_current_item_pool, _i, 1);	
+				}
+			}
+		}
+		
+		for (var _i = instance_number(other.e_item) - 1; _i > -1; _i--) {
+			instance_destroy(instance_find(other.e_item,_i));
+		}
+	}
+	array_push(end_action, _method);
+}
+
 function scr_atmosphere(_bg = ds_map_find_value(global.room_bg, room), _snd = ds_map_find_value(global.room_music, room)) {
 	end_snd = _snd;
 	end_bg = _bg;

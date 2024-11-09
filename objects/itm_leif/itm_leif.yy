@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"itm_brick",
+  "%Name":"itm_leif",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"itm_brick",
+  "name":"itm_leif",
   "overriddenProperties":[],
   "parent":{
     "name":"Crime Scene",
@@ -33,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_shitty_brick",
-    "path":"sprites/spr_shitty_brick/spr_shitty_brick.yy",
+    "name":"spr_leif_witness",
+    "path":"sprites/spr_leif_witness/spr_leif_witness.yy",
   },
   "spriteMaskId":null,
   "visible":true,

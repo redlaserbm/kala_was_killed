@@ -10,5 +10,10 @@ function scr_item_examination(_text_id) {
 				scr_text(spr_laser, 1, "This is why I don't trust you.");
 				scr_open_inventory();
 				break;
+				
+		default:
+			scr_open_inventory();
+			instance_destroy();
+			break;
 	}
 }

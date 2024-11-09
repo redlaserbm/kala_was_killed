@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_item_manip",
+  "%Name":"scr_item_manipulation",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_item_manip",
+  "name":"scr_item_manipulation",
   "parent":{
     "name":"Inventory",
     "path":"folders/Scripts/Inventory.yy",

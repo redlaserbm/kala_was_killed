@@ -60,6 +60,7 @@ if !setup {
 	}
 	
 	state.text_id = text_id;
+	state.dictionary = dictionary;
 }
 
 // As silly as this looks, I need a way of preventing textbox code from working if we are not in the game state.
@@ -146,9 +147,8 @@ if active {
 		// If options dialogue is NOT present, advance the dialogue upon clicking.
 		// If options dialogue is present, advance the dialogue provided that we click on an option.
 		// For presentation's sake, do not allow the player to advance dialogue while the game is transitioning from background to background.
-		if force_go || ((accept_key && !_display_options) || (accept_key && _display_options && option_pos != noone)) && timer > 2 && global.fade_time == 0 {
+		if (force_go && draw_char >= text_length[page]) || ((accept_key && !_display_options) || (accept_key && _display_options && option_pos != noone)) && timer > 2 && global.fade_time == 0 {
 			// Has all the text for the current page displayed yet?
-			force_go = false;
 			if draw_char < text_length[page] {
 				// No. This skips the typing effect and writes out all the text immediately
 				draw_char = text_length[page];
@@ -166,6 +166,7 @@ if active {
 				if page < page_number - 1 {
 					// Yes, there is!
 					page++;
+					force_go = false;
 					draw_char = 0;
 				} else {
 					instance_destroy();

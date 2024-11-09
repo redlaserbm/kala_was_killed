@@ -7,7 +7,10 @@ function scr_textbox_create(_text_id, _dictionary = scr_dialogue) {
 	// _text_id is the header that the text is labelled with.
 	// _dictionary is the script that this function will search through to find that header.
 	with( instance_create_depth(0,0,-16000, obj_textbox) ) {
+		
 		text_id = _text_id;
+		dictionary = _dictionary;
+		
 		_dictionary(_text_id);
 	}
 }
