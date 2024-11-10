@@ -1,18 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_slider",
+  "%Name":"itm_shifter",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_slider",
+  "name":"itm_shifter",
   "overriddenProperties":[],
   "parent":{
-    "name":"User Interface",
-    "path":"folders/Objects/User Interface.yy",
+    "name":"Crime Scene",
+    "path":"folders/Objects/Items/Crime Scene.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_interactable",
+    "path":"objects/obj_interactable/obj_interactable.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_circle",
-    "path":"sprites/spr_circle/spr_circle.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

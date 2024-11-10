@@ -49,13 +49,13 @@ switch (menu_pos) {
 	case 2:
 		switch (option_pos) {
 			case 0:
-				scr_game_save();
-				menu_pos = 0;
+				// Access menu for saving games
+				menu_pos = 5;
 				option_pos = -1;
 				break;
 			case 1:
-				scr_game_load();
-				menu_pos = 0;
+				// Access menu for loading save files
+				menu_pos = 6;
 				option_pos = -1;
 				break;
 			case 2:
@@ -83,11 +83,34 @@ switch (menu_pos) {
 	case 4:
 		switch (option_pos) {
 			case 0:
-				menu_pos = 0;
+				if (instance_number(obj_logger) > 0 && obj_logger.active) || (instance_number(obj_inventory) > 0 && obj_inventory.active) {
+					menu_pos = 0;
+					option_pos = -1;
+					obj_logger.active = false;
+					obj_inventory.active = false;
+				}
 				option_pos = -1;
-				obj_logger.active = false;
-				obj_inventory.active = false;
 				break;
+		}
+		break;
+		
+	case 5: 
+		if (option_pos >= 0) && (option_pos < 3) {
+			scr_game_save(option_pos);	
+			option_pos = -1;
+		} else if (option_pos == 3) {
+			menu_pos = 2;
+			option_pos = -1;
+		}
+		break;
+		
+	case 6:
+	if (option_pos >= 0) && (option_pos < 3) {
+			scr_game_load(option_pos);	
+			option_pos = -1;
+		} else if (option_pos == 3) {
+			menu_pos = 2;
+			option_pos = -1;
 		}
 		break;
 }

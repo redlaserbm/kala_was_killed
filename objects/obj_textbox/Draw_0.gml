@@ -14,6 +14,14 @@ for (var _i = 0; _i < instance_number(obj_slider); _i++) {
 // Rules to automatically determine if a textbox should be regarded as active or not.
 if ((instance_number(obj_inventory) < 1 || !obj_inventory.active) && (instance_number(obj_logger) < 1 || !obj_logger.active) ) {
 	active = true;	
+	for (var _i = 0; _i < instance_number(obj_textbox); _i++) {
+		var _textbox = instance_find(obj_textbox, _i);
+		if _textbox.timer < timer {
+			active = false;
+			break;
+		}
+	}
+	
 } else {
 	active = false;	
 }

@@ -25,6 +25,18 @@ option[3,1] = {text:"Music Volume", type:"slider"};
 option[3,2] = {text:"SFX Volume", type:"slider"};
 option[3,3] = {text:"Back", type:"standard"};
 
+// For Saving the Game
+option[5,0] = {text:"Save File 1", type:"standard"};
+option[5,1] = {text:"Save File 2", type:"standard"};
+option[5,2] = {text:"Save File 3", type:"standard"};
+option[5,3] = {text:"Back", type:"standard"};
+
+// For Loading Save Files
+option[6,0] = {text:"Load File 1", type:"standard"};
+option[6,1] = {text:"Load File 2", type:"standard"};
+option[6,2] = {text:"Load File 3", type:"standard"};
+option[6,3] = {text:"Back", type:"standard"};
+
 // This "menu" shows up whenever the logger or the inventory are active
 option[4,0] = {text: "Back", type: "standard"};
 

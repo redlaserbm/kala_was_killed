@@ -1,7 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
-function scr_game_save(){
+function scr_game_save(_slot = 0){
 	
 	// To begin, let's perform one last update of the game's state (as a way of double-checking things)
 	// scr_update(obj_game.state);
@@ -15,7 +15,7 @@ function scr_game_save(){
 	
 	_game_data.current_room = room_get_name(room);
 	
-	var _filename = "savedata.sav";
+	var _filename = "savedata_" +  string(_slot) + ".sav";
 	var _json = json_stringify(_game_data);
 	var _buffer = buffer_create( string_byte_length(_json) + 1, buffer_fixed, 1);
 	buffer_write(_buffer, buffer_string, _json);
@@ -29,7 +29,7 @@ function scr_game_save(){
 	obj_game.alarm[1] = 60;
 }
 
-function scr_game_load(){
+function scr_game_load(_slot = 0){
 	// UNLOADING THE CURRENT GAME STATE
 	
 	//If the player is viewing any text, immediately destroy the textbox without running its associated end actions
@@ -52,7 +52,7 @@ function scr_game_load(){
 	// LOADING THE SAVE STATE
 	
 	// First, let's get the save file we created earlier
-	var _filename = "savedata.sav";
+	var _filename = "savedata_" +  string(_slot) + ".sav";
 	if !file_exists(_filename) {
 		show_debug_message("loading failed!");
 		exit;		
@@ -110,8 +110,8 @@ function scr_game_load(){
 	}
 	
 	// Display a message notifying that the game file was loaded successfully
-	obj_game.alarm[2] = 60;
+	obj_game.alarm[2] = 1;
 	
+	show_debug_message("Loaded game!");
 	show_debug_message(_load_array);
-	show_debug_message(instance_number(obj_itemizer));
 }

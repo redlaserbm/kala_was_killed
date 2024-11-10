@@ -1,23 +1,48 @@
 // These scripts contain END ACTIONS
 // When a textbox is finished running and has end actions associated with it...
 // It will run those end actions before destroying itself! 
-function scr_add_item(_name){
-	
-	index = 0;
-	while global.inventory_map[index] != _name {
-		index += 1;
-		if index >= array_length(global.inventory_map) {
-			break;	
+function scr_add_items(_items = [], _context = obj_inventory, _instant = false) {
+	// For each item in _items, make sure the item doesn't already exist in the inventory
+	if _instant {
+		for (var _i = 0; _i < array_length(_items); _i++) {
+			var _already_exists = false;
+			for (var _j = 0; _j < array_length(_context.state.inventory); _j++) {
+				if _context.state.inventory[_j] == _items[_i] {
+					_already_exists = true;
+					break;
+				}
+			}
+			if !_already_exists {
+				array_push(_context.state.inventory, _items[_i]);
+			}
 		}
-	}
-	
-	if index < array_length(global.inventory_map) {
-		// Ensure that we only modify the inventory if the object we want to add exists!
-		var _method = function() { 
-			inventory_add(obj_inventory,index);
-		};
-		array_push(end_action, _method);
-		
+	} else {
+		context = _context;
+		items = _items;
+		var _method = function() {
+			for (var _i = 0; _i < array_length(items); _i++) {
+				var _already_exists = false;
+				for (var _j = 0; _j < array_length(context.state.inventory); _j++) {
+					if context.state.inventory[_j] == items[_i] {
+						_already_exists = true;
+						break;
+					}
+				}
+				if !_already_exists {
+					array_push(context.state.inventory, items[_i]);
+				}
+			}
+			
+			var _message = "Obtained ";
+			for (var _i = 0; _i < array_length(items); _i++) {
+				_message = _message + items[_i];
+				if (_i < array_length(items) - 1) {
+					_message = _message + ", "
+				}
+			}
+			instance_create_depth(0,0,depth, obj_message, {display_text: _message});
+		}
+		array_push(end_action, _method);	
 	}
 }
 
@@ -30,14 +55,19 @@ function scr_goto(_name){
 	array_push(end_action, _method);
 }
 
-function scr_room_goto(_name){
+function scr_room_goto(_name, _instant = false){
 	room_name = _name;
-	var _method = function() {
-		if room_exists(room_name) {
-			room_goto(room_name);
+	
+	if _instant {
+		instance_create_depth(0,0,depth-1,obj_transition, {target_room: room_name})
+	} else {
+		var _method = function() {
+			if room_exists(room_name) {
+				instance_create_depth(0,0,depth-1,obj_transition, {target_room: room_name})
+			}
 		}
+		array_push(end_action, _method);
 	}
-	array_push(end_action, _method);
 }
 
 function scr_flag(_name, _instant = false, _value = true){

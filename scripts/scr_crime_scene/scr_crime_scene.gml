@@ -13,7 +13,7 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_laser, 1, "Wait wtf...");
 			scr_text(spr_laser, 1, "Brooo, my house noooo!!!!!!!");
 			scr_text(noone, 0, "That's your sidekick, Laser. He helps you investigate crime scenes like this one using his badass forensic robot tech.")
-			scr_text(spr_laser, 1, "Jesus, my shit got smashed to pieces. How am I gonna look at naked women in the privacy of my own home when I no longer have privacy?");
+			scr_text(spr_laser, 1, "Jesus, my shit got smashed to pieces. How am I gonna look at naked women on the internet in the privacy of my own home now?");
 			scr_text(noone, 0, "At least, he's *supposed* to help..."); 
 			scr_text(spr_laser, 1, "I spent like, 2 months fixing up my house after the last explosion dude.");
 			scr_text(spr_laser, 1, "Literally brick-by-brick I put that house back together myself.");
@@ -34,6 +34,7 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_temmie, 1, "Mhm...");
 			scr_text(spr_jakkop, 1, "Here's a police report on the scene. Based on afro guy's account, we think Kala's death is an accident, but we wanted you to confirm.");
 			scr_add_items(["Police report"]);
+			scr_text(noone, 0, "You just received an item in your inventory. To view your inventory, click on the menu on the top left of the screen.");
 			break;
 			
 		case "kala":
@@ -81,7 +82,7 @@ function scr_crime_scene(_text_id){
 		case "tree_3":
 			scr_text(spr_temmie, 1, "So, if I try to answer your question about happy little trees again, you *will* listen to me, right?");
 			scr_text(spr_laser, 1, "Absolutely.");
-			scr_text(spr_temmie, 1, "So as I saying, it depends on a couple things lik---", [scr_force_go()]);
+			scr_text(spr_temmie, 1, "So as I was saying, it depends on a couple things lik---", [scr_force_go()]);
 			scr_text(spr_laser, 1, "(literally instantly dozing off to sleep like a jackass)");
 			scr_text(spr_temmie,1, "I will give you so many freaking splinters when you wake up.");
 			scr_text(spr_laser, 1, "...");
@@ -130,6 +131,17 @@ function scr_crime_scene(_text_id){
 			scr_room_goto(rm_car_interior);
 			break;
 			
+		case "keys_remark":
+			scr_text(spr_temmie, 1, "Hey, Laser.");
+			scr_text(spr_laser, 1, "Hmm?");
+			scr_text(spr_temmie, 1, "Don't you think it's weird that the keys weren't already in the ignition?");
+			scr_text(spr_laser, 1, "What do you mean?");
+			scr_text(spr_temmie, 1, "I mean, the police report stated Kala lost control of her car, crashed into your house, and died upon impact...");
+			scr_text(spr_laser, 1, "Hmm... So if the scene wasn't tampered with, the keys should've still been inside the ignition...");
+			scr_text(spr_temmie, 1, "Bingo. This scene was tampered with.");
+			scr_text(spr_laser, 1, "So, there'll certainly be *something* of interest around here.");
+			break;
+			
 		case "leif_brick":
 			scr_text(spr_temmie, 1, "Hmm... That's weird.");
 			scr_text(spr_temmie, 1, "There's a brick on the gas pedal.");
@@ -147,6 +159,7 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_temmie, 1, "Okay afro boy, tell me more about what happened here at the scene.");
 			scr_text(spr_laser, 1, "Wait, Temmie, Jakkop already got an account of what happened at the scene from Leif earlier.");
 			scr_text(spr_laser, 1, "We should probably explore more and come back to Leif if we find any *new* information not already seen in the report.");
+			scr_text(spr_temmie, 1, "Hmm...");
 			break;
 			
 		case "leif_1":
@@ -157,6 +170,15 @@ function scr_crime_scene(_text_id){
 		
 		case "leif_2":
 			scr_text(spr_temmie, 1, "Okay let's get his ass!");
+			break;
+			
+		case "laser_stab":
+			scr_text(spr_laser, 1, "Oww! wtf");
+			scr_text(spr_temmie, 1, "Hehehehe");
+			scr_text(spr_laser, 1, "I hate you.");
+			scr_text(spr_temmie, 1, "No you don't.");
+			scr_text(spr_laser, 1, "Well, I *am* gonna hate you if you keep stabbing me with that thing.");
+			scr_open_inventory(); 
 			break;
 			
 	}

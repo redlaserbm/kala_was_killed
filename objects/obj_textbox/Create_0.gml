@@ -1,6 +1,5 @@
 /// @description Variable initialization
 event_inherited();
-active = true;
 scr_activate();
 
 depth = -15000;

@@ -6,7 +6,7 @@ if active {
 			scr_textbox_create("keys", scr_crime_scene);
 			state.key_interactions += 1;
 		} else {
-			room_goto(rm_car_interior);	
+			scr_room_goto(rm_car_interior, true);	
 		}
 	} else {
 		if (state.interactions >= 1) && (obj_inventory.click_pos >= 0) && (obj_inventory.state.inventory[obj_inventory.click_pos] == "Temmie's knife") {

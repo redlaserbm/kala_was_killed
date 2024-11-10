@@ -15,7 +15,8 @@ if !setup {
 var _inv_x = camera_get_view_x(view_camera[0]);
 var _inv_y = camera_get_view_y(view_camera[0]);
 
-var _click = mouse_check_button_pressed(mb_left) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480);
+var _click = (mouse_check_button_released(mb_left) || (hold_timer > hold_threshold)) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480);
+var _hold_click = mouse_check_button(mb_left);
 
 var _key_inv = false; // keyboard_check_pressed(global.key_inv);
 if _key_inv {
@@ -81,12 +82,17 @@ if active {
 		draw_text_ext(_inv_item_x, _inv_item_y, _drawtext, 640, 640);
 	}
 	
-	// This code concerns selecting items for combining.
+	// This code concerns interacting with items in the inventory using the mouse
 	if _click {
 		clicks += 1;
 		if (click_pos == -1) {
 			// We are not trying to combine items yet, we're just selecting the first candidate for combining.
 			click_pos = hover_pos;
+			
+			// If we held the mouse button for long enough, we actually want to explore the item in more detail too!
+			if (hold_timer >= hold_threshold) {
+				scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+			}
 		} else {
 			// We *are* trying to combine items now!
 			if (hover_pos != click_pos) && (hover_pos != -1) {
@@ -99,7 +105,7 @@ if active {
 			} else if hover_pos == -1 && (obj_menu.hover_pos == noone) {
 				click_pos = -1;	
 			} else if (hover_pos == click_pos) {
-				if (click_timer < double_click_threshold) {
+				if (hold_timer >= hold_threshold) {
 					scr_textbox_create(state.inventory[click_pos], scr_item_examination);
 				} else {
 					click_pos = -1;
@@ -108,6 +114,16 @@ if active {
 				// In this case, let's examine the object in more detail.
 			}
 		}
+		click_timer = 0;
+	}
+	
+	if _hold_click && (hover_pos > -1) {
+		hold_timer += 1;	
+	} else {
+		hold_timer = 0;	
+	}
+	if hold_timer > hold_threshold+1 {
+		hold_timer = 0;	
 	}
 	
 	// Draw the textbox that we will display item descriptions on.
@@ -120,9 +136,6 @@ if active {
 		draw_text_ext(_inv_x + textbox_x_offset + text_border_x, _inv_y +  textbox_y_offset + text_border_y, _drawtext, line_sep, line_width);
 	}
 	
-	if _click {
-		click_timer = 0;	
-	}
 } else {
 	// If the inventory is inactive, display the item that is currently equipped, if such an item exists.	
 	
@@ -153,5 +166,5 @@ if active {
 }
 
 // draw_text(150, 0, click_pos);
-// draw_text(200, 0, hover_pos);
+// draw_text(200, 0, hold_timer);
 // draw_text(250, 0, clicks);

@@ -8,7 +8,7 @@ if active {
 	_items += 1*scr_check_item("Road observation");
 	_items += 1*scr_check_item("Leif's brick");
 	
-	if _items == 0 {
+	if (_items == 0) || (state.interactions < 1 && _items < 3) {
 		scr_textbox_create("leif", scr_crime_scene);
 	} else if _items < 3 {
 		scr_textbox_create("leif_1", scr_crime_scene);
@@ -16,4 +16,5 @@ if active {
 		// This will trigger a scene change.
 		scr_textbox_create("leif_2", scr_crime_scene);
 	}
+	state.interactions += 1;
 }

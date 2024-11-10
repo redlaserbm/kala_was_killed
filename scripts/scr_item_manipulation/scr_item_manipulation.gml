@@ -10,42 +10,6 @@ ds_map_add(item_index, "Yippee plushie", 4);
 item_combo = ds_grid_create(25,25);
 item_combo[# 0, 1] = ["Temmie's knife", "Sliced cake"];
 
-function scr_add_items(_items = [], _context = obj_inventory, _instant = false) {
-	// For each item in _items, make sure the item doesn't already exist in the inventory
-	if _instant {
-		for (var _i = 0; _i < array_length(_items); _i++) {
-			var _already_exists = false;
-			for (var _j = 0; _j < array_length(_context.state.inventory); _j++) {
-				if _context.state.inventory[_j] == _items[_i] {
-					_already_exists = true;
-					break;
-				}
-			}
-			if !_already_exists {
-				array_push(_context.state.inventory, _items[_i]);
-			}
-		}
-	} else {
-		context = _context;
-		items = _items;
-		var _method = function() {
-			for (var _i = 0; _i < array_length(items); _i++) {
-				var _already_exists = false;
-				for (var _j = 0; _j < array_length(context.state.inventory); _j++) {
-					if context.state.inventory[_j] == items[_i] {
-						_already_exists = true;
-						break;
-					}
-				}
-				if !_already_exists {
-					array_push(context.state.inventory, items[_i]);
-				}
-			}
-		}
-		array_push(end_action, _method);	
-	}
-}
-
 // For combining two items in the player's inventory
 function scr_combine_items(_item_1, _item_2, _context = obj_inventory){
 	
@@ -98,6 +62,9 @@ function scr_combine_items(_item_1, _item_2, _context = obj_inventory){
 		}
 	} else {
 		click_pos = hover_pos;	
+		if (hold_timer >= hold_threshold) {
+			scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+		}
 	}
 }
 

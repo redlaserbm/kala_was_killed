@@ -2,6 +2,18 @@
 // You can write your code in this editor
 accept_key = mouse_check_button_pressed(mb_left);
 
+// The submenu dedicated to loading save files will have different text depending on whether
+// a save file exists in the slot or not.
+for (var _i = 0; _i < 3; _i++) {
+	// Determine if there is a save file in slot _i	
+	var _filename = "savedata_" +  string(_i) + ".sav";
+	if file_exists(_filename) {
+		option[2,_i].text = "Save File " + string(_i+1);	
+	} else {
+		option[2,_i].text = "No Data";	
+	}
+}
+
 scr_draw_options(620, 460,option[menu_pos], "bottom_right");
 
 sliders.volume = false;
@@ -14,7 +26,7 @@ switch (menu_pos) {
 				break;
 			
 			case 1:
-				scr_game_load();
+				menu_pos = 2;
 				option_pos = -1;
 				break;
 				
@@ -38,4 +50,18 @@ switch (menu_pos) {
 				break;
 		}
 		break;
+		
+	case 2:
+		if (option_pos >= 0) && (option_pos < 3) {
+			scr_game_load(option_pos);	
+			option_pos = -1;
+		} else if (option_pos == 3) {
+			menu_pos = 0;
+			option_pos = -1;
+		}
+		break;
+}
+
+if room != rm_main_menu {
+	instance_destroy();	
 }

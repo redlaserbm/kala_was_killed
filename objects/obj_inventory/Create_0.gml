@@ -7,7 +7,7 @@ if !struct_exists(state, "inventory") {
 	state.inventory = [];
 
 	state.inventory[0] = "Temmie's knife";
-	state.inventory[1] = "Chocolate cake";
+	state.inventory[1] = "Laser";
 }
 
 show_debug_message(state.inventory);
@@ -91,4 +91,6 @@ textbox_spr_w = sprite_get_width(textbox_spr);
 textbox_spr_h = sprite_get_height(textbox_spr);
 
 click_timer = 0;
+hold_timer = 0;
+hold_threshold = 30;
 double_click_threshold = 20;

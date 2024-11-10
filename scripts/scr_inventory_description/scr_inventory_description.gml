@@ -7,10 +7,14 @@ function scr_inventory_description(_text_id){
 			_return_text = "Temmie's trusty knife. Cuts cleanly through her adversaries. Please don't stand in her way she will stab you with this."
 			break;
 			
+		case "Laser":
+			_return_text = "Your \"trusty\" forensic sidekick. Double-click to ask him for help.";
+			break;
+			
 		case "Chocolate cake":
 			_return_text = "Mm..Food! But also bound to give you diabetes. Seriously, have you checked how much sugar is in this thing?";
 			break;
-			
+		 	
 		case "Sliced cake":
 			_return_text = "Mm..Food! Still bound to give you diabetes, but it's easier to share with your friends now.";
 			break;

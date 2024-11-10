@@ -12,6 +12,12 @@ option[1,1] = {text:"Music Volume", type:"slider"};
 option[1,2] = {text:"SFX Volume", type:"slider"};
 option[1,3] = {text:"Back", type:"standard"};
 
+// For Loading Save Files
+option[2,0] = {text: "Save File 1", type:"standard"};
+option[2,1] = {text: "Save File 2", type:"standard"};
+option[2,2] = {text: "Save File 3", type:"standard"};
+option[2,3] = {text: "Back", type:"standard"};
+
 menu_pos = 0; // Which menu are we accessing?
 option_pos = -1; // Which option have we selected on the menu (if applicable)?
 

@@ -17,6 +17,13 @@ switch (room){
 			draw_sprite(spr_elevator,0,0,0);
 		}
 		break;
+		
+	case rm_car_interior:
+		if (instance_number(obj_transition) < 1) && (!state.flags.keys_remark) {
+			state.flags.keys_remark = true;
+			scr_textbox_create("keys_remark", scr_crime_scene);
+		}
+		break;
 }
 
 if alarm[1] > 0 {
