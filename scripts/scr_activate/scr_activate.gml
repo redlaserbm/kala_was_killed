@@ -10,4 +10,10 @@ function scr_activate(){
 	
 	// Make the current interactable active
 	active = true;
+	
+	if object_get_name(object_index) == object_get_name(obj_inventory) {
+		show_debug_message("ACTIVATED INVENTORY");
+		obj_menu.menu_pos = 4;
+		obj_menu.option_pos = -1;
+	}
 }

@@ -11,7 +11,8 @@ option[0,0] = {text:"Menu", type:"standard"};
 option[1,0] = {text:"Inventory", type:"standard"};
 option[1,1] = {text:"Logs", type: "standard"};
 option[1,2] = {text:"Settings", type:"standard"};
-option[1,3] = {text:"Back", type:"standard"};
+option[1,3] = {text:"Debug", type:"standard"};
+option[1,4] = {text:"Back", type:"standard"};
 
 // For Saving/Loading or accessing more settings
 option[2,0] = {text:"Save Game", type:"standard"};
@@ -36,6 +37,10 @@ option[6,0] = {text:"Load File 1", type:"standard"};
 option[6,1] = {text:"Load File 2", type:"standard"};
 option[6,2] = {text:"Load File 3", type:"standard"};
 option[6,3] = {text:"Back", type:"standard"};
+
+// For Performing Useful Debugging Actions
+option[7,0] = {text:"Scene 2 Warp", type:"standard"};
+option[7,1] = {text:"Back", type:"standard"};
 
 // This "menu" shows up whenever the logger or the inventory are active
 option[4,0] = {text: "Back", type: "standard"};

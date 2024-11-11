@@ -35,7 +35,11 @@ state.flags = {
 	elevator_started: false,
 	
 	police_report: false,
-	keys_remark: false
+	keys_remark: false,
+
+	interrogation_start: false,	
+	interrogation_car: false, // Turns true when Temmie successfully interrogates Leif about how the car ended up inside Laser's house
+	interrogation_help: false, // Turns true when Temmie successfully interrogates Leif about how the lights could've been on at Laser's house
 }
 
 music_fade_time = 2; // Controls how long it takes for music to fade in seconds

@@ -29,10 +29,8 @@ function scr_game_save(_slot = 0){
 	obj_game.alarm[1] = 60;
 }
 
-function scr_game_load(_slot = 0){
-	// UNLOADING THE CURRENT GAME STATE
-	
-	//If the player is viewing any text, immediately destroy the textbox without running its associated end actions
+function scr_game_unload() {
+	// Helper function which unloads the current game state
 	var _i = 0;
 	for (_i = instance_number(obj_textbox) - 1; _i > -1 ; _i--) {
 		var _textbox = instance_find(obj_textbox, _i);
@@ -48,6 +46,11 @@ function scr_game_load(_slot = 0){
 	
 	// Finally, destroy obj_itemizer
 	instance_destroy(obj_itemizer);
+}
+
+function scr_game_load(_slot = 0){
+	
+	scr_game_unload();
 	
 	// LOADING THE SAVE STATE
 	

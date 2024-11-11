@@ -28,7 +28,7 @@ function scr_item_examination(_text_id) {
 					break;
 			
 				case 2:
-					scr_text(spr_laser, 1, "If you need even more information about an item in the inventory, you can double-click it.");
+					scr_text(spr_laser, 1, "If you need even more information about an item in the inventory, you can hold-click it.");
 					scr_text(spr_laser, 1, "For most items this will give you more information, which is helpful in case you've forgotten anything during my yapping.");
 					scr_text(spr_temmie, 1, "That's helpful since you do tend to yap way too much and with way too little substance while doing it.");
 					scr_text(spr_laser, 1, "...");

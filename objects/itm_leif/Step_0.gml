@@ -7,10 +7,12 @@ if active {
 	_items += 1*scr_check_item("Power lines");
 	_items += 1*scr_check_item("Road observation");
 	_items += 1*scr_check_item("Leif's brick");
+	_items += 1*scr_check_item("Kala's phone");
+	_items += 1*scr_check_item("Crime scene map");
 	
-	if (_items == 0) || (state.interactions < 1 && _items < 3) {
+	if (_items == 0) || (state.interactions < 1 && _items < 5) {
 		scr_textbox_create("leif", scr_crime_scene);
-	} else if _items < 3 {
+	} else if _items < 5 {
 		scr_textbox_create("leif_1", scr_crime_scene);
 	} else {
 		// This will trigger a scene change.

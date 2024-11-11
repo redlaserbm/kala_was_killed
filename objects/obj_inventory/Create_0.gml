@@ -2,12 +2,26 @@
 // You can write your code in this editor
 event_inherited();
 
+// This object concerns the storage and manipulation of items in the player's person.
+// There are two modes of operation:
+// 1. Standard mode --- In this mode the player can freely interact with objects on their person.
+// 2. Detective mode --- This mode is forcefully triggered by certain dialogue interactions. 
+
+// The struct state.detective contains relevant information when the inventory is in detective mode
+// The inventory is understood to be in detective mode iff state.detective.item == noone
+
 // This is the actual inventory we have access to.
 if !struct_exists(state, "inventory") {
 	state.inventory = [];
 
 	state.inventory[0] = "Temmie's knife";
 	state.inventory[1] = "Laser";
+	
+	state.detective = {
+		item: noone,
+		text_correct: {text_id: "text", dictionary: "dictionary"},
+		text_incorrect: {text_id: "text", dictionary: "dictionary"},
+	}
 }
 
 show_debug_message(state.inventory);

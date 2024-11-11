@@ -8,7 +8,7 @@ function scr_inventory_description(_text_id){
 			break;
 			
 		case "Laser":
-			_return_text = "Your \"trusty\" forensic sidekick. Double-click to ask him for help.";
+			_return_text = "Your \"trusty\" forensic sidekick. Hold-click to ask him for help.";
 			break;
 			
 		case "Chocolate cake":
@@ -27,12 +27,16 @@ function scr_inventory_description(_text_id){
 			_return_text = "A summary from police chief Jakkop on what happened to Kala based on an eyewitness account from Leif.";
 			break;
 			
-		case "Road obseration":
+		case "Road observation":
 			_return_text = "Inconsistent with the police report, there are no tire tracks on the road that would indicate a car dodging a falling tree.";
 			break;
 			
 		case "Power lines":
 			_return_text = "When the tree fell, it took down power lines with it, meaning that the surrounding area was pitch black at the time of the crash.";
+			break;
+			
+		case "Crime scene map":
+			_return_text = "A coarsely detailed diagram of the car crash and surrounding area.";
 			break;
 	}
 	return _return_text;

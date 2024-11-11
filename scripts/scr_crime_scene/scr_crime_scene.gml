@@ -33,8 +33,8 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_jakkop, 1, "Afro guy says the crash occurred at about 9pm, and Kala ended up dying on impact after hitting the house.");
 			scr_text(spr_temmie, 1, "Mhm...");
 			scr_text(spr_jakkop, 1, "Here's a police report on the scene. Based on afro guy's account, we think Kala's death is an accident, but we wanted you to confirm.");
-			scr_add_items(["Police report"]);
-			scr_text(noone, 0, "You just received an item in your inventory. To view your inventory, click on the menu on the top left of the screen.");
+			scr_add_items(["Police report", "Crime scene map"]);
+			scr_text(noone, 0, "You just received some items. To view your inventory, click on the menu on the top left of the screen.");
 			break;
 			
 		case "kala":
@@ -170,6 +170,7 @@ function scr_crime_scene(_text_id){
 		
 		case "leif_2":
 			scr_text(spr_temmie, 1, "Okay let's get his ass!");
+			scr_room_goto(rm_interrogation);
 			break;
 			
 		case "laser_stab":
@@ -181,5 +182,19 @@ function scr_crime_scene(_text_id){
 			scr_open_inventory(); 
 			break;
 			
+		case "shifter":
+			scr_text(spr_temmie, "Oh shit the car was in reverse.");
+			scr_add_items(["Shifter observation"]);
+			break;
+			
+		case "kala_phone":
+			scr_text(spr_temmie, 1, "This must be Kala's phone. Although...");
+			scr_text(spr_temmie, 1, "If I pull up the lock screen...");
+			scr_text(spr_laser, 1, "That's a picture of our eyewitness, Leif.");
+			scr_text(spr_laser, 1, "You think they were friends or something?");
+			scr_text(spr_temmie, 1, "I dunno, but this will probably be useful for later.");
+			scr_add_items(["Kala's phone"]);
+			scr_remove_from_room(room, itm_phone);
+			break;
 	}
 }

@@ -46,7 +46,7 @@ function scr_add_items(_items = [], _context = obj_inventory, _instant = false) 
 	}
 }
 
-function scr_goto(_name){
+function scr_goto(_name, _dictionary = scr_dialogue){
 	// This script is useful if there's multiple lines of dialogue that need to lead into the same text at the end 
 	goto_string = _name;
 	var _method = function() { 
@@ -117,9 +117,28 @@ function scr_atmosphere(_bg = ds_map_find_value(global.room_bg, room), _snd = ds
 	}
 }
 
-function scr_open_inventory() {
+function scr_open_inventory(_item = noone, _text_correct = {text_id: "text", dictionary: "dict"}, _text_incorrect = {text_id: "text", dictionary: "dict"}) {
+	// Opens the inventory
+	// If an item is specified as an argument, the inventory will open in "detective" mode, in which case:
+	// 1. _item is the item which must be chosen to advance the game
+	// 2. _text_correct represents the dialogue to goto when we pick the right item.
+	// 3. _text_incorrect represents the dialogue to goto when we pick the wrong item.
+	
+	// This is admittedly awfully written code...
+	e_item = _item;
+	e_text_correct = _text_correct;
+	e_text_incorrect = _text_incorrect;
+	
 	var _method = function() {
+		var _e_item = e_item;
+		var _e_text_correct = e_text_correct;
+		var _e_text_incorrect = e_text_incorrect;
 		with (obj_inventory) {
+			if _e_item != noone {
+				state.detective.item = variable_clone(_e_item);
+				state.detective.text_correct = variable_clone(_e_text_correct);
+				state.detective.text_incorrect = variable_clone(_e_text_incorrect);
+			}
 			scr_activate();	
 		}
 		instance_destroy();

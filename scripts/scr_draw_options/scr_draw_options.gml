@@ -10,6 +10,17 @@ function scr_draw_options(_xval, _yval, _options, _alignment = "top_left") {
 	
 	draw_set_font(global.main_font);
 	
+	// Legacy support
+	if is_string(_options[0]) {
+		for (var _i = 0; _i < array_length(_options); _i++) {
+			var _text = _options[_i];
+			_options[_i] = {
+				text: _text,
+				type: "standard"
+			}
+		}
+	}
+	
 	// This script reads the state variable "accept_key" to track whether or not an option has been click in.
 	// This script updates the state variable "option_pos" to indicate, when an option is picked, which one was picked.
 	
@@ -33,7 +44,7 @@ function scr_draw_options(_xval, _yval, _options, _alignment = "top_left") {
 	// How *high* should the options dialogue be?
 	var _option_height = 2*global.textbox.option_border_y
 	_option_height = _option_height + global.textbox.line_sep*(array_length(_options)-1)
-	_option_height = _option_height + string_height(_options[array_length(_options)-1]);
+	_option_height = _option_height + string_height(_options[array_length(_options)-1].text);
 	
 	// If the alignment is anything different from top_left, we must modify _xval and/or _yval based on the measurements above
 	switch (_alignment) {

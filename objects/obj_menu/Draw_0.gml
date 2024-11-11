@@ -7,7 +7,8 @@ var _xval = 0;
 var _yval = 0;
 
 scr_draw_options(_xval, _yval, option[menu_pos]);
-	
+// draw_text(150,0,option_pos);
+
 switch (menu_pos) {
 	case 0:
 		switch (option_pos) {
@@ -39,6 +40,10 @@ switch (menu_pos) {
 				option_pos = -1;
 				break;
 			case 3:
+				menu_pos = 7;
+				option_pos = -1;
+				break;
+			case 4:
 				menu_pos = 0;
 				option_pos = -1;
 				break;
@@ -83,7 +88,8 @@ switch (menu_pos) {
 	case 4:
 		switch (option_pos) {
 			case 0:
-				if (instance_number(obj_logger) > 0 && obj_logger.active) || (instance_number(obj_inventory) > 0 && obj_inventory.active) {
+				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective.item)) && obj_inventory.active) {// (instance_number(obj_logger) > 0 && obj_logger.active) || ((instance_number(obj_inventory) > 0) && obj_inventory.active && (!is_string(obj_inventory.state.detective.item))) {
+					show_debug_message("GOT TO HERE");
 					menu_pos = 0;
 					option_pos = -1;
 					obj_logger.active = false;
@@ -105,7 +111,7 @@ switch (menu_pos) {
 		break;
 		
 	case 6:
-	if (option_pos >= 0) && (option_pos < 3) {
+		if (option_pos >= 0) && (option_pos < 3) {
 			scr_game_load(option_pos);	
 			option_pos = -1;
 		} else if (option_pos == 3) {
@@ -113,6 +119,20 @@ switch (menu_pos) {
 			option_pos = -1;
 		}
 		break;
+	
+	case 7:
+		switch (option_pos) {
+			case 0:
+				scr_warp();
+				option_pos = -1;
+				break;
+			case 1:
+				menu_pos = 1;
+				option_pos = -1;
+				break;
+		}
+		break;
+	
 }
 
 if menu_pos == 0 {
@@ -125,4 +145,6 @@ if menu_pos == 0 {
 if collapse_timer > 5 {
 	collapse_flag = true;	
 }
-// draw_text(150,0,instance_number(obj_slider));
+
+
+// draw_text(250,0,menu_pos);

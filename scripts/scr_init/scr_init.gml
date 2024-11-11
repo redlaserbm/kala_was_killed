@@ -84,4 +84,7 @@ settings = {
 	volume_sfx: 1
 }
 
+// This variable concerns the *default* dictionary script that textbox files look through when you try and access dialogue stuffs
+dictionary = scr_dialogue;
+
 fade_time = 0;

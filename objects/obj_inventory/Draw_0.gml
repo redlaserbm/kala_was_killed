@@ -1,6 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+var _disable_detective_mode = function() {
+	state.detective = {
+		item: noone,
+		text_correct: {text_id: "text", dictionary: "dictionary"},
+		text_incorrect: {text_id: "text", dictionary: "dictionary"},
+	}
+}
+
 // Additional setup
 if !setup {
 	setup = true;
@@ -89,9 +97,23 @@ if active {
 			// We are not trying to combine items yet, we're just selecting the first candidate for combining.
 			click_pos = hover_pos;
 			
+			if click_pos > -1 && (state.detective.item != noone) {
+				// We are in "detective" mode and we selected an item. Is the item the right one?
+				if state.inventory[click_pos] == state.detective.item {
+					// Yes, we did! 
+					scr_textbox_create(state.detective.text_correct.text_id, state.detective.text_correct.dictionary);
+					_disable_detective_mode();
+				} else {
+					scr_textbox_create(state.detective.text_incorrect.text_id, state.detective.text_incorrect.dictionary);
+					// No, we didn't. :(	
+				}
+				obj_menu.menu_pos = 0;
+			}
+			
 			// If we held the mouse button for long enough, we actually want to explore the item in more detail too!
 			if (hold_timer >= hold_threshold) {
 				scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+				obj_menu.menu_pos = 0;
 			}
 		} else {
 			// We *are* trying to combine items now!
@@ -107,6 +129,7 @@ if active {
 			} else if (hover_pos == click_pos) {
 				if (hold_timer >= hold_threshold) {
 					scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+					obj_menu.menu_pos = 0;
 				} else {
 					click_pos = -1;
 				}
@@ -165,6 +188,6 @@ if active {
 	}
 }
 
-// draw_text(150, 0, click_pos);
+// draw_text(150, 0, state.detective.item);
 // draw_text(200, 0, hold_timer);
 // draw_text(250, 0, clicks);

@@ -24,6 +24,13 @@ switch (room){
 			scr_textbox_create("keys_remark", scr_crime_scene);
 		}
 		break;
+		
+	case rm_interrogation:
+		if (instance_number(obj_transition) < 1) && !state.flags.interrogation_start {
+			state.flags.interrogation_start = true;
+			scr_textbox_create("testimony", scr_interrogation);
+		}
+		break;
 }
 
 if alarm[1] > 0 {
