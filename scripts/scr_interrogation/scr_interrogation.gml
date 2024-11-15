@@ -150,7 +150,8 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "Maybe you're right. Maybe Kala did go for a backwards ride in her car straight into Laser's house.");
 			scr_text(spr_leif, 1, "But maybe you're also wrong. Maybe she's woken up at this point. Maybe she's started running away.");
 			scr_text(spr_temmie, 1, "Running away?");
-			scr_text(spr_leif, 1, "Well, she's hiding a secret from you guys, one that your department would be very interested in.");
+			scr_text(spr_leif, 1, "Well, she's hiding a secret from you guys, and that secret is the very reason she would be running away right now.");
+			scr_text(spr_leif, 1, "Do they really keep you in the dark about all this? It's like I'm talking to a pawn on the chess board...");
 			scr_text(spr_temmie, 1, "(Huh? I'm getting a transmission from the police chief...)");
 			scr_text(spr_jakkop, 1, "Hey uh, Temmie, we got a problem at the crime scene, you're gonna wanna take notes.");
 			scr_text(spr_temmie, 1, "What the hell happened this time?");

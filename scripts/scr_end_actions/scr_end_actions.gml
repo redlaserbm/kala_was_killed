@@ -46,6 +46,43 @@ function scr_add_items(_items = [], _context = obj_inventory, _instant = false) 
 	}
 }
 
+function scr_remove_items(_items = [], _context = obj_inventory, _instant = false) {
+	var _i = 0;
+	var _inv = _context.state.inventory;
+	
+	e_inv = _inv;
+	e_items = _items;
+	
+	var _method = function () {
+		var _i = 0;
+		while _i < array_length(e_inv) {
+			// Check whether the given item is an item that belongs to the list of items to remove
+			// If it does, then remove it
+			var _j = 0;
+			var _inc_ind_i = true;
+			while _j < array_length(e_items) {
+				if e_inv[_i] == e_items[_j] {
+					array_delete(e_inv, _i, 1);
+					array_delete(e_items, _j, 1);
+				
+					_inc_ind_i = false;
+					break;
+				}
+				_j++;
+			}
+			if _inc_ind_i {
+				_i = _i + 1;	
+			}
+		}	
+	}
+
+	if _instant {
+		_method();
+	} else {
+		array_push(end_actions, _method);
+	}	
+}
+
 function scr_goto(_name, _dictionary = scr_dialogue){
 	// This script is useful if there's multiple lines of dialogue that need to lead into the same text at the end 
 	goto_string = _name;

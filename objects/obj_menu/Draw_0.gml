@@ -89,13 +89,23 @@ switch (menu_pos) {
 		switch (option_pos) {
 			case 0:
 				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective)) && obj_inventory.active) && !(instance_number(itm_map) > 0 && !(itm_map.state.context_check == false)) {// (instance_number(obj_logger) > 0 && obj_logger.active) || ((instance_number(obj_inventory) > 0) && obj_inventory.active && (!is_string(obj_inventory.state.detective.item))) {
-					// show_debug_message("GOT TO HERE");
+					// If we click the back button while the inventory is pulled up...
+					// Close the inventory!
+					// If we click the back button while examining an item in the inventory...
+					// Return to the inventory! Wipe any text interactions currently occurring as a consequence of examining an item.
 					if obj_inventory.active || obj_logger.active {
 						menu_pos = 0;
 						option_pos = -1;
 						obj_inventory.active = false;
 						obj_logger.active = false;
 					} else {
+						for (var _i = 0; _i < instance_number(obj_textbox); _i++) {
+							var _textbox = instance_find(obj_textbox, _i);
+							if _textbox.dictionary = scr_item_examination {
+								_textbox.force_destroy = true;
+								instance_destroy(_textbox);	
+							}
+						}
 						scr_activate(obj_inventory);	
 					}
 					//if instance_number(itm_map) > 0 && itm_map.active {

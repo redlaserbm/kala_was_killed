@@ -84,8 +84,9 @@ function scr_game_load(_slot = 0){
 		// Create the textbox and skip to the page they were viewing
 		show_debug_message("Loading textbox");
 		scr_textbox_create(_load_array.obj_textbox.text_id, _load_array.obj_textbox.dictionary);
-		//with (obj_textbox) {
-		//	page = _load_array.obj_textbox.page;
+		with (obj_textbox) {
+			page = _load_array.obj_textbox.page;
+		}
 		
 		//	// Infer the current background image that should be displayed by looking back at previous pages
 		//	var _i = array_length(bg) - 1
