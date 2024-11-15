@@ -87,6 +87,8 @@ function scr_flag(_name, _instant = false, _value = true){
 
 function scr_remove_from_room(_room, _item){
 	// Removes item _item from being shown in room _room
+	// Some items may need to persist after being removed from the room
+	
 	e_room = _room;
 	e_item = _item;
 	var _method = function() {
@@ -100,7 +102,10 @@ function scr_remove_from_room(_room, _item){
 		}
 		
 		for (var _i = instance_number(other.e_item) - 1; _i > -1; _i--) {
-			instance_destroy(instance_find(other.e_item,_i));
+			var _item = instance_find(other.e_item,_i);
+			if object_get_name(_item.object_index) != object_get_name(itm_news) {
+				instance_destroy(instance_find(other.e_item,_i));
+			}
 		}
 	}
 	array_push(end_action, _method);
@@ -117,27 +122,18 @@ function scr_atmosphere(_bg = ds_map_find_value(global.room_bg, room), _snd = ds
 	}
 }
 
-function scr_open_inventory(_item = noone, _text_correct = {text_id: "text", dictionary: "dict"}, _text_incorrect = {text_id: "text", dictionary: "dict"}) {
+function scr_open_inventory(_context = noone) {
 	// Opens the inventory
-	// If an item is specified as an argument, the inventory will open in "detective" mode, in which case:
-	// 1. _item is the item which must be chosen to advance the game
-	// 2. _text_correct represents the dialogue to goto when we pick the right item.
-	// 3. _text_incorrect represents the dialogue to goto when we pick the wrong item.
+	// If _context is specified as anything other than noone
 	
 	// This is admittedly awfully written code...
-	e_item = _item;
-	e_text_correct = _text_correct;
-	e_text_incorrect = _text_incorrect;
+	e_context = _context;
 	
 	var _method = function() {
-		var _e_item = e_item;
-		var _e_text_correct = e_text_correct;
-		var _e_text_incorrect = e_text_incorrect;
+		var _e_context = e_context;
 		with (obj_inventory) {
-			if _e_item != noone {
-				state.detective.item = variable_clone(_e_item);
-				state.detective.text_correct = variable_clone(_e_text_correct);
-				state.detective.text_incorrect = variable_clone(_e_text_incorrect);
+			if _e_context != noone {
+				state.detective = _e_context;
 			}
 			scr_activate();	
 		}
@@ -145,4 +141,15 @@ function scr_open_inventory(_item = noone, _text_correct = {text_id: "text", dic
 	}
 	array_push(end_action, _method);
 		
+}
+
+function scr_map_poll(_context = false) {
+	// This function is *specifically* designed for the interaction with the crime scene map
+	// that occurs during Leif's interrogation. I will generalize it later if it needs to be generalized
+	e_context = _context;
+	var _method = function() {
+		itm_map.state.context_check = e_context;
+		scr_activate(itm_map);	
+	}
+	array_push(end_action, _method);
 }

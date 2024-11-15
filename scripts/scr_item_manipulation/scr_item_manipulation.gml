@@ -3,12 +3,11 @@
 item_index = ds_map_create();
 ds_map_add(item_index, "Temmie's knife", 0);
 ds_map_add(item_index, "Chocolate cake", 1);
-ds_map_add(item_index, "Sliced cake", 2);
-ds_map_add(item_index, "Laser's big ego", 3);
-ds_map_add(item_index, "Yippee plushie", 4);
+ds_map_add(item_index, "Lifework pen", 2);
 
 item_combo = ds_grid_create(25,25);
 item_combo[# 0, 1] = ["Temmie's knife", "Sliced cake"];
+item_combo[# 0, 2] = ["Temmie's lightblade", "Lifework pen"];
 
 // For combining two items in the player's inventory
 function scr_combine_items(_item_1, _item_2, _context = obj_inventory){
@@ -78,4 +77,15 @@ function scr_check_item(_name) {
 		}
 	}
 	return _exists;
+}
+
+// Checks whether the given item is actively equipped or not. Returns booleans
+function scr_check_equipped(_name, _context = obj_inventory) {
+	with (_context) {
+		if click_pos < 0 {
+			return false	
+		} else {
+			return state.inventory[click_pos] == _name	
+		}
+	}
 }

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_kala_room",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_kala_room",
+  "parent":{
+    "name":"Dictionaries",
+    "path":"folders/Scripts/Dictionaries.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

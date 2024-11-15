@@ -38,6 +38,30 @@ function scr_inventory_description(_text_id){
 		case "Crime scene map":
 			_return_text = "A coarsely detailed diagram of the car crash and surrounding area.";
 			break;
+			
+		case "Leif's brick":
+			_return_text = "It's a brick with Leif's name on it. Why is there a brick with his name on it? Idk go ask him about it.";
+			break;
+			
+		case "Kala's phone":
+			_return_text = "Kala's phone. She has an image of Leif for her lockscreen background, suggesting that she knows him pretty well.";
+			break;
+			
+		case "Lifework pen":
+			_return_text = "A pen for drawing in 3D. More powerful than you think it is...";
+			break;
+			
+		case "Temmie's lightblade":
+			_return_text = "An extremely dangerous sword composed of light particles. Perfect for heavy duty adversarial encounters.";
+			break;
+			
+		case "Newspaper":
+			_return_text = "A local newspaper from the time Laser's house was blown to smithereens. Hold-click to examine.";
+			break;
+			
+		case "Kala's journal":
+			_return_text = "Kala's personal journal, covering her personal life starting from a few years back. Hold-click to examine.";
+			break;
 	}
 	return _return_text;
 }

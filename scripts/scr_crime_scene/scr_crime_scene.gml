@@ -33,6 +33,12 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_jakkop, 1, "Afro guy says the crash occurred at about 9pm, and Kala ended up dying on impact after hitting the house.");
 			scr_text(spr_temmie, 1, "Mhm...");
 			scr_text(spr_jakkop, 1, "Here's a police report on the scene. Based on afro guy's account, we think Kala's death is an accident, but we wanted you to confirm.");
+			scr_text(spr_jakkop, 1, "Ohh, uh, one more thing.");
+			scr_text(spr_temmie, 1, "And that is?");
+			scr_text(spr_jakkop, 1, "I took the keys out of the ignition and I started spinning it on my finger like a fidget spinner, y'know?");
+			scr_text(spr_jakkop, 1, "But then, like, the keys flew off my finger and kinda disappeared.");
+			scr_text(spr_temmie, 1, "So you need to go fetch them...");
+			scr_text(spr_jakkop, 1, "Exactly.");
 			scr_add_items(["Police report", "Crime scene map"]);
 			scr_text(noone, 0, "You just received some items. To view your inventory, click on the menu on the top left of the screen.");
 			break;
@@ -132,14 +138,8 @@ function scr_crime_scene(_text_id){
 			break;
 			
 		case "keys_remark":
-			scr_text(spr_temmie, 1, "Hey, Laser.");
-			scr_text(spr_laser, 1, "Hmm?");
-			scr_text(spr_temmie, 1, "Don't you think it's weird that the keys weren't already in the ignition?");
-			scr_text(spr_laser, 1, "What do you mean?");
-			scr_text(spr_temmie, 1, "I mean, the police report stated Kala lost control of her car, crashed into your house, and died upon impact...");
-			scr_text(spr_laser, 1, "Hmm... So if the scene wasn't tampered with, the keys should've still been inside the ignition...");
-			scr_text(spr_temmie, 1, "Bingo. This scene was tampered with.");
-			scr_text(spr_laser, 1, "So, there'll certainly be *something* of interest around here.");
+			scr_text(spr_temmie, 1, "Ok, that was way too much work to open a damn car door.");
+			scr_text(spr_laser, 1, "Hopefully there's something good around here, or else this was a complete waste of time trying to get this car opened.");
 			break;
 			
 		case "leif_brick":
@@ -156,20 +156,59 @@ function scr_crime_scene(_text_id){
 		case "leif":
 			scr_text(spr_temmie, 1, "Hey, you, afro boy, what's your name?");
 			scr_text(spr_leif, 1, "Call me Leif.");
-			scr_text(spr_temmie, 1, "Okay afro boy, tell me more about what happened here at the scene.");
+			scr_text(spr_temmie, 1, "Okay afro boy, you saw what happened, right?");
 			scr_text(spr_laser, 1, "Wait, Temmie, Jakkop already got an account of what happened at the scene from Leif earlier.");
-			scr_text(spr_laser, 1, "We should probably explore more and come back to Leif if we find any *new* information not already seen in the report.");
+			scr_text(spr_laser, 1, "We can check that account by looking at the police report in the inventory.");
+			scr_text(spr_laser, 1, "In the meantime, we should explore more and come back to Leif if we find any *new* information not already seen in the report.");
+			scr_text(spr_leif, 1, "Hey uh, have you guys seen my phone? I think I lost it in the trees or somewhere around here.");
 			scr_text(spr_temmie, 1, "Hmm...");
 			break;
 			
 		case "leif_1":
-			scr_text(spr_laser, 1, "Hey Temmie, I understand we have *some* evidence we can present to Leif, but...");
-			scr_text(spr_laser, 1, "I think we should explore more, so we can build a compelling case against him.");
+			scr_text(spr_temmie, 1, "Something about him seems... suspicious.");
+			scr_text(spr_leif, 1, "(Standing suspsiciously or something to that effect)");
+			scr_text(spr_temmie, 1, "Maybe he actually killed Kala and is trying to hide it...");
+			scr_text(spr_temmie, 1, "We should bring him in for further questioning.");
+			scr_text(spr_laser, 1, "Hey Temmie, that might be true, but it does us no good to detain someone and only present a half-baked case against them.");
+			scr_text(spr_laser, 1, "I think we should explore more; this way we can gather all the damning evidence we need to to piece together what really happened.");
 			scr_text(spr_temmie, 1, "Hmm..."); 
+			scr_text(spr_leif, 1, "I really miss my smartphone. :(");
+			break;
+			
+		case "leif_special_brick":
+			scr_text(spr_laser, 1, "Temmie, remember what I said earlier?"); 
+			scr_text(spr_laser, 1, "I don't want to present evidence against Leif until we have a compelling case to make for his involvement.");
+			scr_text(spr_temmie, 1, "Sure, but I still need to ask him about *one* thing peculiar we found in our searching.");
+			scr_text(spr_temmie, 1, "Hey, Leif.");
+			scr_text(spr_leif, 1, "Oh, you guys find my phone?");
+			scr_text(spr_temmie, 1, "No, but I found a brick with your name on it.");
+			scr_text(spr_leif, 1, "Oh, yeah, Temmie, that's my lucky brick.");
+			scr_text(spr_temmie, 1, "...");
+			scr_text(spr_temmie, 1, "What makes this brick so lucky?");
+			scr_text(spr_leif, 1, "Well, whenever one of my friends is nervous about something, I throw the brick at them to give them good luck.");
+			scr_text(spr_temmie, 1, "You... throw the brick at them?");
+			scr_text(spr_leif, 1, "Uh-huh. Straight for the head.");
+			scr_text(spr_temmie, 1, "Hmm...");
+			scr_text(spr_temmie, 1, "Hey, Laser, catch!");
+			scr_text(spr_laser, 1, "Ow WTF");
+			scr_text(spr_temmie, 1, "Hehehehehe");
+			scr_text(spr_laser, 1, "I'm sending you the bill for the dent repairs after we get done here.");
 			break;
 		
 		case "leif_2":
-			scr_text(spr_temmie, 1, "Okay let's get his ass!");
+			scr_text(spr_laser, 1, "Ok, I'm pretty sure we've scoured this place of all the useful evidence we could find from it.");
+			scr_text(spr_laser, 1, "Let's get his ass.");
+			scr_text(spr_temmie, 1, "Hey, Leif.");
+			scr_text(spr_leif, 1, "Yeah?");
+			scr_text(spr_temmie, 1, "You're coming with me, I got some questions I need you to answer.");
+			scr_text(spr_leif, 1, "Is this about my missing smartphone? Did you guys find it?"); 
+			scr_text(spr_temmie, 1, "This is about Kala's death.");
+			scr_text(spr_leif, 1, "Oh.");
+			scr_text(spr_leif, 1, "Am I in trouble officer?");
+			scr_text(spr_temmie, 1, "No.");
+			scr_text(spr_leif, 1, "Ok cool can I go no---", [scr_force_go()]);
+			scr_text(spr_temmie, 1, "Of course you're in trouble, dipshit. C'mon, get in the handcuffs now.");
+			scr_text(spr_leif, 1, "Aww...");
 			scr_room_goto(rm_interrogation);
 			break;
 			

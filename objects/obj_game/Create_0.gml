@@ -40,12 +40,15 @@ state.flags = {
 	interrogation_start: false,	
 	interrogation_car: false, // Turns true when Temmie successfully interrogates Leif about how the car ended up inside Laser's house
 	interrogation_help: false, // Turns true when Temmie successfully interrogates Leif about how the lights could've been on at Laser's house
+
+	interrogation_nuance: false, // This flag triggers if Leif argues during the dialogue that the brick is irrelevant to the crime scene.
+	interrogation_complete: false
 }
 
-music_fade_time = 2; // Controls how long it takes for music to fade in seconds
+state.active_item = false;
+state.previous_active_item = false;
 
 // Set the loop points for audio tracks in the game (if necessary)
 init_setup = false;
 
-bg_music = snd_main_menu;
-bg_music_new = snd_main_menu;
+instance_create_depth(0,0,0,obj_music);

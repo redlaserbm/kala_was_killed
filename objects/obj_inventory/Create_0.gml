@@ -7,8 +7,7 @@ event_inherited();
 // 1. Standard mode --- In this mode the player can freely interact with objects on their person.
 // 2. Detective mode --- This mode is forcefully triggered by certain dialogue interactions. 
 
-// The struct state.detective contains relevant information when the inventory is in detective mode
-// The inventory is understood to be in detective mode iff state.detective.item == noone
+// state.detective is either "noone", or a _context argument which can be fed into scr_context_poll
 
 // This is the actual inventory we have access to.
 if !struct_exists(state, "inventory") {
@@ -17,11 +16,7 @@ if !struct_exists(state, "inventory") {
 	state.inventory[0] = "Temmie's knife";
 	state.inventory[1] = "Laser";
 	
-	state.detective = {
-		item: noone,
-		text_correct: {text_id: "text", dictionary: "dictionary"},
-		text_incorrect: {text_id: "text", dictionary: "dictionary"},
-	}
+	state.detective = noone
 }
 
 show_debug_message(state.inventory);
@@ -104,7 +99,7 @@ textbox_img_speed = 6/60;
 textbox_spr_w = sprite_get_width(textbox_spr);
 textbox_spr_h = sprite_get_height(textbox_spr);
 
-click_timer = 0;
+active_timer = 0;
 hold_timer = 0;
-hold_threshold = 30;
+hold_threshold = 20;
 double_click_threshold = 20;

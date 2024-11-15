@@ -40,7 +40,8 @@ option[6,3] = {text:"Back", type:"standard"};
 
 // For Performing Useful Debugging Actions
 option[7,0] = {text:"Scene 2 Warp", type:"standard"};
-option[7,1] = {text:"Back", type:"standard"};
+option[7,1] = {text:"Scene 3 Warp", type:"standard"};
+option[7,2] = {text:"Back", type:"standard"};
 
 // This "menu" shows up whenever the logger or the inventory are active
 option[4,0] = {text: "Back", type: "standard"};

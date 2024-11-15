@@ -9,8 +9,8 @@
   "name":"obj_transition",
   "overriddenProperties":[],
   "parent":{
-    "name":"User Interface",
-    "path":"folders/Objects/User Interface.yy",
+    "name":"Utility",
+    "path":"folders/Objects/Utility.yy",
   },
   "parentObjectId":{
     "name":"obj_interactable",

@@ -1,14 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var _disable_detective_mode = function() {
-	state.detective = {
-		item: noone,
-		text_correct: {text_id: "text", dictionary: "dictionary"},
-		text_incorrect: {text_id: "text", dictionary: "dictionary"},
-	}
-}
-
 // Additional setup
 if !setup {
 	setup = true;
@@ -23,22 +15,52 @@ if !setup {
 var _inv_x = camera_get_view_x(view_camera[0]);
 var _inv_y = camera_get_view_y(view_camera[0]);
 
-var _click = (mouse_check_button_released(mb_left) || (hold_timer > hold_threshold)) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480);
+var _click = (active_timer > 5) && ((mouse_check_button_released(mb_left) || (hold_timer > hold_threshold)) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480));
 var _hold_click = mouse_check_button(mb_left);
 
-var _key_inv = false; // keyboard_check_pressed(global.key_inv);
-if _key_inv {
-	if active {
-		active = false;	
-	} else {
-		scr_activate();	
+if instance_number(itm_map) < 1 && scr_check_item("Crime scene map") {
+	instance_create_depth(0,0,depth, itm_map);
+}
+
+var _examine_item = function() {
+	switch (state.inventory[click_pos]) {
+		case "Crime scene map":
+			if instance_number(itm_map) < 1 {
+				instance_create_depth(0,0,depth, itm_map);
+			}
+			scr_activate(itm_map);
+			break;
+			
+		case "Newspaper":
+			if instance_number(itm_news) < 1 {
+				instance_create_depth(0,0,depth, itm_news);	
+			}
+			itm_news.state.context = "inventory";
+			scr_activate(itm_news);
+			break;
+			
+		case "Kala's journal":
+			if instance_number(itm_journal_inventory) < 1 {
+				instance_create_depth(0,0,depth, itm_journal_inventory);	
+			}
+			scr_activate(itm_journal_inventory);
+			break;
+			
+		default:
+			scr_textbox_create(state.inventory[click_pos], scr_item_examination);
+			// obj_menu.menu_pos = 0;
+			break;
 	}
 }
 
+if scr_check_item("Temmie's lightblade") {
+	obj_game.state.flags.interrogation_complete = true;	
+}
+
 hover_pos = -1;
-new_items_tracker = noone;
 
 if active {
+	active_timer += 1;
 	// Draw the textbox that we will display all inventory items on.
 	draw_sprite_ext(textbox_spr, textbox_img, _inv_x + inv_offset_x, _inv_y + inv_offset_y, inv_width/textbox_spr_w, inv_height/textbox_spr_h, 0, c_white, alpha);
 	
@@ -97,23 +119,17 @@ if active {
 			// We are not trying to combine items yet, we're just selecting the first candidate for combining.
 			click_pos = hover_pos;
 			
-			if click_pos > -1 && (state.detective.item != noone) {
+			if click_pos > -1 && (state.detective != noone) {
 				// We are in "detective" mode and we selected an item. Is the item the right one?
-				if state.inventory[click_pos] == state.detective.item {
-					// Yes, we did! 
-					scr_textbox_create(state.detective.text_correct.text_id, state.detective.text_correct.dictionary);
-					_disable_detective_mode();
-				} else {
-					scr_textbox_create(state.detective.text_incorrect.text_id, state.detective.text_incorrect.dictionary);
-					// No, we didn't. :(	
-				}
+				var _text_id = scr_context_poll(state.detective, state.inventory[click_pos]);
+				scr_textbox_create(_text_id);
 				obj_menu.menu_pos = 0;
 			}
 			
 			// If we held the mouse button for long enough, we actually want to explore the item in more detail too!
 			if (hold_timer >= hold_threshold) {
-				scr_textbox_create(state.inventory[click_pos], scr_item_examination);
-				obj_menu.menu_pos = 0;
+				_examine_item();
+				click_pos = -1;
 			}
 		} else {
 			// We *are* trying to combine items now!
@@ -128,16 +144,13 @@ if active {
 				click_pos = -1;	
 			} else if (hover_pos == click_pos) {
 				if (hold_timer >= hold_threshold) {
-					scr_textbox_create(state.inventory[click_pos], scr_item_examination);
-					obj_menu.menu_pos = 0;
+					_examine_item();
 				} else {
 					click_pos = -1;
 				}
-				// We have clicked on the same item as before. If we clicked fast enough, we have double-clicked!
 				// In this case, let's examine the object in more detail.
 			}
 		}
-		click_timer = 0;
 	}
 	
 	if _hold_click && (hover_pos > -1) {
@@ -161,7 +174,7 @@ if active {
 	
 } else {
 	// If the inventory is inactive, display the item that is currently equipped, if such an item exists.	
-	
+	active_timer = 0;
 	// To avoid screen clutter
 	var _cluttered = false;
 	for (var _i = 0; _i < instance_number(obj_interactable); _i++) {

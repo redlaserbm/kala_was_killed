@@ -10,6 +10,7 @@ function scr_game_save(_slot = 0){
 	var _game_data = variable_clone(obj_game.state);
 	
 	if instance_number(obj_textbox) < 1 {
+		show_debug_message("There are no textboxes on screen");
 		_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1, dictionary: "default"};	
 	}
 	
@@ -44,8 +45,9 @@ function scr_game_unload() {
 		instance_destroy(_item);
 	}
 	
-	// Finally, destroy obj_itemizer
+	// Destroy other objects
 	instance_destroy(obj_itemizer);
+	// instance_destroy(obj_music);
 }
 
 function scr_game_load(_slot = 0){
@@ -76,44 +78,57 @@ function scr_game_load(_slot = 0){
 	// Next, spawn the necessary objects to get the game up and running.
 	scr_obj_init();
 	
-	// Finally, if necessary, display the text that the player was looking at at the time that they saved
+	// Display the text that the player was looking at at the time that they saved
 	if _load_array.obj_textbox.text_id != "-1" {
 		
 		// Create the textbox and skip to the page they were viewing
+		show_debug_message("Loading textbox");
 		scr_textbox_create(_load_array.obj_textbox.text_id, _load_array.obj_textbox.dictionary);
-		with (obj_textbox) {
-			page = _load_array.obj_textbox.page;
+		//with (obj_textbox) {
+		//	page = _load_array.obj_textbox.page;
 		
-			// Infer the current background image that should be displayed by looking back at previous pages
-			var _i = array_length(bg) - 1
-			while bg[_i] == noone {
-				_i -= 1;
-				if _i < 0 {
-					break;	
-				}
-			}
-			if _i > 0 {
-				obj_game.fade_time = 0;
-				obj_game.bg_new = bg[_i];	
-			}
+		//	// Infer the current background image that should be displayed by looking back at previous pages
+		//	var _i = array_length(bg) - 1
+		//	while bg[_i] == noone {
+		//		_i -= 1;
+		//		if _i < 0 {
+		//			break;	
+		//		}
+		//	}
+		//	if _i > 0 {
+		//		obj_game.fade_time = 0;
+		//		obj_game.bg_new = bg[_i];	
+		//	}
 			
-			// Do the same thing but for the music
-			_i = array_length(sound) - 1
-			while sound[_i] == noone {
-				_i -= 1;
-				if _i < 0 {
-					break;	
-				}
-			}
-			if _i > 0 {
-				obj_game.bg_music_new = sound[_i];	
-			}
+		//	// Do the same thing but for the music
+		//	_i = array_length(sound) - 1
+		//	while sound[_i] == noone {
+		//		_i -= 1;
+		//		if _i < 0 {
+		//			break;	
+		//		}
+		//	}
+		//	if _i > 0 {
+		//		obj_game.bg_music_new = sound[_i];	
+		//	}
 			
-		}
+		//}
 	}
+	
+	//var _active_item = asset_get_index(obj_game.state.active_item);
+	//var _inst = false;
+	//show_debug_message("Identified as the active item...");
+	//show_debug_message(object_get_name(_active_item));
+	
+	//if instance_number(_active_item) < 1 {
+	//	_inst = instance_create_depth(0,0,obj_itemizer.depth, _active_item);
+	//	show_debug_message(_active_item);
+	//}
+	//scr_activate(_inst);
 	
 	// Display a message notifying that the game file was loaded successfully
 	obj_game.alarm[2] = 1;
+	obj_game.alarm[0] = 1;
 	
 	show_debug_message("Loaded game!");
 	show_debug_message(_load_array);

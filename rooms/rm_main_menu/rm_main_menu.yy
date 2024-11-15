@@ -17,8 +17,8 @@
   ],
   "name":"rm_main_menu",
   "parent":{
-    "name":"Legacy Rooms",
-    "path":"folders/Rooms/Legacy Rooms.yy",
+    "name":"Rooms",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

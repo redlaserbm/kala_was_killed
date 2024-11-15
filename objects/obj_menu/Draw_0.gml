@@ -88,12 +88,25 @@ switch (menu_pos) {
 	case 4:
 		switch (option_pos) {
 			case 0:
-				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective.item)) && obj_inventory.active) {// (instance_number(obj_logger) > 0 && obj_logger.active) || ((instance_number(obj_inventory) > 0) && obj_inventory.active && (!is_string(obj_inventory.state.detective.item))) {
-					show_debug_message("GOT TO HERE");
-					menu_pos = 0;
-					option_pos = -1;
-					obj_logger.active = false;
-					obj_inventory.active = false;
+				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective)) && obj_inventory.active) && !(instance_number(itm_map) > 0 && !(itm_map.state.context_check == false)) {// (instance_number(obj_logger) > 0 && obj_logger.active) || ((instance_number(obj_inventory) > 0) && obj_inventory.active && (!is_string(obj_inventory.state.detective.item))) {
+					// show_debug_message("GOT TO HERE");
+					if obj_inventory.active || obj_logger.active {
+						menu_pos = 0;
+						option_pos = -1;
+						obj_inventory.active = false;
+						obj_logger.active = false;
+					} else {
+						scr_activate(obj_inventory);	
+					}
+					//if instance_number(itm_map) > 0 && itm_map.active {
+					//	itm_map.active = false;
+					//	scr_activate(obj_inventory);
+					//} else {
+					//	menu_pos = 0;
+					//	option_pos = -1;
+					//	obj_logger.active = false;
+					//	obj_inventory.active = false;	
+					//}
 				}
 				option_pos = -1;
 				break;
@@ -120,13 +133,18 @@ switch (menu_pos) {
 		}
 		break;
 	
+	// Debug menu
 	case 7:
 		switch (option_pos) {
 			case 0:
-				scr_warp();
+				scr_warp(2);
 				option_pos = -1;
 				break;
 			case 1:
+				scr_warp(3);
+				option_pos = -1;
+				break;
+			case 2:
 				menu_pos = 1;
 				option_pos = -1;
 				break;
