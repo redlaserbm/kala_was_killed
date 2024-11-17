@@ -21,8 +21,11 @@ function scr_warp(_scene = 2){
 			break;
 			
 		case 3:
+			
 			room_goto(rm_kala);
 			scr_obj_init();
+			
+			scr_remove_items(["Power lines", "Road observation", "Leif's brick", "Crime scene map", "Kala's phone", "Laser"], obj_inventory, true);
 			scr_add_items(["Kala's key"], obj_inventory, true);
 			break;
 			

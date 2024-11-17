@@ -148,13 +148,20 @@ switch (menu_pos) {
 		switch (option_pos) {
 			case 0:
 				scr_warp(2);
+				menu_pos = 0;
 				option_pos = -1;
 				break;
 			case 1:
 				scr_warp(3);
+				menu_pos = 0;
 				option_pos = -1;
 				break;
 			case 2:
+				scr_warp(4);
+				menu_pos = 0;
+				option_pos = -1;
+				break;
+			case 3:
 				menu_pos = 1;
 				option_pos = -1;
 				break;

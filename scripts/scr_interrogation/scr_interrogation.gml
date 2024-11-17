@@ -45,7 +45,7 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "Nice theory, but there's one problem, Temmie.");
 			scr_text(spr_temmie, 1, "What's the problem?");
 			scr_text(spr_leif, 1, "Kala definitely crashed the car, I saw it with my own eyes.");
-			scr_text(spr_leif, 1, "The brick probably landed there by chance as the accident occurred.");
+			scr_text(spr_leif, 1, "The brick probably landed there by chance after the accident occurred.");
 			scr_text(spr_temmie, 1, "(Hmm... I still think Leif is suspicious, but I need to present another piece of evidence.)");
 			scr_text(spr_temmie, 1, "(Is there anything I can present that invalidates the basis of Leif's argument just now?)");
 			obj_game.state.flags.interrogation_nuance = true;
@@ -55,7 +55,10 @@ function scr_interrogation(_text_id){
 		case "ce_car_correct":
 			obj_game.state.flags.interrogation_car = true;
 			scr_text(spr_temmie, 1, "Kala couldn't have swerved to avoid a falling tree if there were no swerve marks on the road to begin with!");
-			scr_text(spr_leif, 1, "Oh shit");
+			scr_text(spr_leif, 1, "Oh uh... Maybe she was just really good at swerving? I don't know what to tell you man, I *definitely* saw her crash the car.");
+			scr_text(spr_temmie, 1, "Leif, I'm gonna be honest. You are not a good liar. I can tell when you're lying. Don't lie to me, ok?");
+			scr_text(spr_leif, 1, "...");
+			scr_text(spr_leif, 1, "Ok.");
 			if obj_game.state.flags.interrogation_car && obj_game.state.flags.interrogation_help {
 				scr_goto("hiding_something", scr_interrogation);
 			} else {
@@ -73,7 +76,11 @@ function scr_interrogation(_text_id){
 		case "ce_help_correct":
 			obj_game.state.flags.interrogation_help = true;
 			scr_text(spr_temmie, 1, "Since the tree knocked down power lines when it fell, the lights couldn't have been on at Laser's house at the time of the crash!");
-			scr_text(spr_leif, 1, "Oh shit");
+			scr_text(spr_leif, 1, "Oh... uh... maybe Laser is smart and has a backup generator?");
+			scr_text(spr_laser, 1, "The agency tells me I can't have those around my place, something about it being a \"shock risk\".");
+			scr_text(spr_leif, 1, "...");
+			scr_text(spr_temmie, 1, "...");
+			scr_text(spr_leif, 1, "Look, I can explain, I swear!");
 			if obj_game.state.flags.interrogation_car && obj_game.state.flags.interrogation_help {
 				scr_goto("hiding_something", scr_interrogation);
 			} else {
@@ -113,6 +120,7 @@ function scr_interrogation(_text_id){
 			
 		case "brick_theory_1":
 			itm_map.state.context_check = false;
+			scr_text(spr_temmie, 1, "Clearly you set the car up near the lake.");
 			scr_text(spr_laser, 1, "Wait, Temmie, if Leif put the brick in the car at that spot, and then the car sped into my house...");
 			scr_text(spr_laser, 1, "Wouldn't it have impacted my house *front* first instead of *rear* first?");
 			scr_text(spr_temmie, 1, "No. I think Leif made a mistake when he rigged Kala's car with the brick.");
@@ -144,14 +152,15 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "Yeah, you see, what if... Kala was still alive?");
 			scr_text(spr_temmie, 1, "That's impossible! We were all over that corpse just now there's no way she could be alive right now.");
 			scr_text(spr_laser, 1, "Temmie, I'm telling you, it's just like in those zombie movies!");
-			scr_text(spr_temmie, 1, "Laser, shut up.");
+			scr_text(spr_temmie, 1, "Laser, respectfully, stfu.");
 			scr_text(spr_leif, 1, "I mean, there's no way a car going in reverse could actually go fast enough to kill someone, right?");
 			scr_text(spr_leif, 1, "Perhaps, if she was alive before the crash, she would still be alive now.");
 			scr_text(spr_leif, 1, "Maybe you're right. Maybe Kala did go for a backwards ride in her car straight into Laser's house.");
 			scr_text(spr_leif, 1, "But maybe you're also wrong. Maybe she's woken up at this point. Maybe she's started running away.");
 			scr_text(spr_temmie, 1, "Running away?");
 			scr_text(spr_leif, 1, "Well, she's hiding a secret from you guys, and that secret is the very reason she would be running away right now.");
-			scr_text(spr_leif, 1, "Do they really keep you in the dark about all this? It's like I'm talking to a pawn on the chess board...");
+			scr_text(spr_leif, 1, "Do they really keep you in the dark about all this? Your none the wiser about the drama within your own agency!");
+			scr_text(spr_leif, 1, "It's like I'm talking to a pawn on the chess board...");
 			scr_text(spr_temmie, 1, "(Huh? I'm getting a transmission from the police chief...)");
 			scr_text(spr_jakkop, 1, "Hey uh, Temmie, we got a problem at the crime scene, you're gonna wanna take notes.");
 			scr_text(spr_temmie, 1, "What the hell happened this time?");
@@ -166,21 +175,47 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "...on the condition that I get to walk free.");
 			scr_text(spr_temmie, 1, "What?");
 			scr_text(spr_leif, 1, "Temmie, think about it this way. You thought I killed someone. That someone is running off free into the distance.");
-			scr_text(spr_leif, 1, "Try placing me in a court of law and see how far the prosecution goes.");
+			scr_text(spr_leif, 1, "Try placing me in a court of law and see how far the prosecution's case goes.");
 			scr_text(spr_laser, 1, "You literally destroyed my house! Do you realize how long it's gonna take to fix that?");
 			scr_text(spr_laser, 1, "Every day that house isn't fixed is a day I can't hang my robo-weewee out in the comfort of my own kitchen.");
 			scr_text(spr_temmie, 1, "(look of absolute disgust)");
 			scr_text(spr_temmie, 1, "Ok Leif, I get it. Tell me where she is and I'll let you go.");
-			scr_text(spr_laser, 1, "What? That's thousands in property damage he caused it's literally a slam dunk case if we bring him in! We got him admitting to the crime and then some!");
+			scr_text(spr_laser, 1, "What? That's thousands in property damage he caused it's literally a slam dunk case if we bring him in!");
+			scr_text(spr_laser, 1, "We got him admitting to the crime and then some!");
 			scr_text(spr_temmie, 1, "I don't want to hear it also you totally deserved it if *that's* what you do in your kitchen.");
 			scr_text(spr_temmie, 1, "Leif, where is she?");
 			
-			scr_text(spr_leif, 1, "Oh yeah she's over at uh... here");
+			scr_text(spr_leif, 1, "It's... kinda complicated. To be honest, she didn't tell me a lot either, just a few hints about where she might be.");
+			scr_text(spr_leif, 1, "But you should check her apartment complex. There's a secret passage she's forged inside her room which she probably darted off to.");
+			scr_text(spr_leif, 1, "Before you go, however, you should take this. It's a copy of Kala's key.");
+			scr_text(spr_leif, 1, "Once you get in, it's up to you to figure out to access the secret passage.");
+			scr_add_items(["Kala's key"]);
+			scr_goto("interrogation_end");
 			
-			scr_text(spr_leif, 1, "But, before you go, you should take this.");
-			scr_text(spr_leif, 1, "You might find that you need more than just your knife when you get there...");
-			scr_add_items(["Lifework pen"]);
+		case "interrogation_end":
+			scr_text(spr_temmie, 1, "Hmm... I see.");
+			scr_text(spr_temmie, 1, "Hey, Laser.");
+			scr_text(spr_laser, 1, "Yes?");
+			scr_text(spr_temmie, 1, "I need you to stay behind and supervise the release of Leif.");
+			scr_text(spr_laser, 1, "Why are we releasing him after all the damage he di---", [scr_force_go()]);
+			scr_text(spr_temmie, 1, "Just do it, I don't want to hear any backtalk.");
+			scr_text(spr_laser, 1, "...");
+			scr_text(spr_temmie, 1, "Thanks, butler.");
+			scr_text(spr_laser, 1, "Is that all I am to you?");
+			scr_text(spr_temmie,1, "...");
+			scr_text(spr_temmie, 1, "Yes.");
+			scr_text(spr_laser, 1, "*sigh*");
+			
+			scr_text(noone, 0, "Laser escorts Leif out of the room. You are now alone.");
+			scr_remove_items(["Laser"]);
+			scr_goto("interrogation_end_1");
 			scr_text(noone, 0, "You can combine items in the inventory by clicking on one item while another item is selected.");
+			break;
+			
+		case "interrogation_end_1":
+			scr_text(spr_temmie, 1, "(I need to figure out Kala's whereabouts...)");
+			scr_text(spr_temmie, 1, "(This key from Leif will get me into her apartment room, but from there, I need to figure out how to access that secret passage...)");
+			scr_room_goto(rm_kala_room);
 			break;
 			
 		case "incorrect":

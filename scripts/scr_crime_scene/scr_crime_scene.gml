@@ -37,21 +37,32 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_temmie, 1, "And that is?");
 			scr_text(spr_jakkop, 1, "I took the keys out of the ignition and I started spinning it on my finger like a fidget spinner, y'know?");
 			scr_text(spr_jakkop, 1, "But then, like, the keys flew off my finger and kinda disappeared.");
-			scr_text(spr_temmie, 1, "So you need to go fetch them...");
+			scr_text(spr_temmie, 1, "So you need me to go fetch them...");
 			scr_text(spr_jakkop, 1, "Exactly.");
 			scr_add_items(["Police report", "Crime scene map"]);
 			scr_text(noone, 0, "You just received some items. To view your inventory, click on the menu on the top left of the screen.");
 			break;
 			
+		case "kala_1":
+			scr_text(spr_temmie, 1, "Wait, so what's an artist like Kala doing meddling in robotics? Those two fields seem unrelated.");
+			scr_text(spr_laser, 1, "Prior to taking up the job, in years past, Kala did quite a bit of freelance work handling rigging for vtuber models.");
+			scr_text(spr_laser, 1, "Recent technological innovations have made it not just viable but practical to create and manipulate matter in 4d.");
+			scr_text(spr_laser, 1, "I use the term 4d here to differentiate between virtual 3d models you see that get used for livestreaming...");
+			scr_text(spr_laser, 1, "and physical, dynamic, moving bodies that exist in the real world like myself.");
+			scr_text(spr_laser, 1, "The advent of Live4D in particular made Kala's shift to what was her current occupation a lot easier than you might think.");
+			scr_text(spr_temmie, 1, "Hmm...");
+			break;
+			
 		case "kala":
-			scr_text(spr_laser, 1, "You sure she's dead?");
+			scr_text(spr_laser, 1, "So uh... you sure she's dead?");
 			scr_text(spr_temmie, 1, "Go ahead, take one hard look at that lifeless corpse and tell me that it's still alive.");
+			scr_text(spr_laser, 1, "...");
 			scr_text(spr_laser, 1, "It's still alive.");
 			scr_text(spr_temmie, 1, "...");
 			scr_text(spr_temmie, 1, "No it isn't.");
 			scr_text(spr_laser, 1, "Look, I'm just saying, maybe she could rise from the dead like in those zombie movies.");
 			scr_text(spr_temmie, 1, "...")
-			scr_text(spr_laser, 1, "You ever seen ParaNorman?");
+			scr_text(spr_laser, 1, "You ever seen Paranorman?");
 			scr_text(spr_laser, 1, "I haven't, but this kind of thing *probably* happened in that movie.");
 			break;
 			
@@ -138,8 +149,12 @@ function scr_crime_scene(_text_id){
 			break;
 			
 		case "keys_remark":
-			scr_text(spr_temmie, 1, "Ok, that was way too much work to open a damn car door.");
-			scr_text(spr_laser, 1, "Hopefully there's something good around here, or else this was a complete waste of time trying to get this car opened.");
+			scr_text(spr_laser, 1, "Damn... It really is her...");
+			scr_text(spr_laser, 1, "This isn't exactly the last way I wanted to meet my coworker...");
+			scr_text(spr_temmie, 1, "Coworker?");
+			scr_text(spr_laser, 1, "Specifically, she's responsible for my rigging, or essentially wiring my brain to my body parts correctly so that I move properly.");
+			scr_text(spr_laser, 1, "Well, she *was* responsible for that.");
+			scr_text(spr_temmie, 1, "...");
 			break;
 			
 		case "leif_brick":
@@ -170,7 +185,7 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_temmie, 1, "Maybe he actually killed Kala and is trying to hide it...");
 			scr_text(spr_temmie, 1, "We should bring him in for further questioning.");
 			scr_text(spr_laser, 1, "Hey Temmie, that might be true, but it does us no good to detain someone and only present a half-baked case against them.");
-			scr_text(spr_laser, 1, "I think we should explore more; this way we can gather all the damning evidence we need to to piece together what really happened.");
+			scr_text(spr_laser, 1, "I think we should explore more; this way we can gather all the damning evidence we need to piece together what really happened.");
 			scr_text(spr_temmie, 1, "Hmm..."); 
 			scr_text(spr_leif, 1, "I really miss my smartphone. :(");
 			break;

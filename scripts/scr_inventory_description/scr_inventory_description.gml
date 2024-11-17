@@ -40,11 +40,11 @@ function scr_inventory_description(_text_id){
 			break;
 			
 		case "Leif's brick":
-			_return_text = "It's a brick with Leif's name on it. Why is there a brick with his name on it? Idk go ask him about it.";
+			_return_text = "Found in Kala's car. It's a brick with Leif's name on it. Why is there a brick with his name on it? Idk go ask him about it.";
 			break;
 			
 		case "Kala's phone":
-			_return_text = "Kala's phone. She has an image of Leif for her lockscreen background, suggesting that she knows him pretty well.";
+			_return_text = "Kala's phone, found in her car. The lockscreen background is an image of Leif, suggesting that she knows him pretty well.";
 			break;
 			
 		case "Lifework pen":

@@ -41,7 +41,7 @@ inv_border_y = 30;
 // How many items will the inventory menu display?
 // We will use this to automatically determine the spacing to apply between items in the inventory menu
 inv_items_x = 2;
-inv_items_y = 5;
+inv_items_y = 6;
 
 // -------
 // Parameters for inventory display when inactive
