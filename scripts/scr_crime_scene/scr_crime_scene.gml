@@ -143,7 +143,7 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_laser, 1, "Good thing I coded that in this video game, or else you wouldn't know what else to do!");
 			scr_text(spr_temmie, 1, "...");
 			scr_text(spr_laser, 1, "I'm a smart guy, ain't I?");
-			scr_text(spr_temmie, 1, "Just give me the damn keys so I can open up the car.");
+			scr_text(spr_temmie, 1, "Just give me the damn keys.");
 			scr_text(spr_laser, 1, "Ok.");
 			scr_room_goto(rm_car_interior);
 			break;
@@ -161,9 +161,10 @@ function scr_crime_scene(_text_id){
 			scr_text(spr_temmie, 1, "Hmm... That's weird.");
 			scr_text(spr_temmie, 1, "There's a brick on the gas pedal.");
 			scr_text(spr_laser, 1, "Lemme see that thing.");
-			scr_text(spr_laser, 1, "Huh, this thing's got some writing on it. It says... L-e-i-f. Weird.");
-			scr_text(spr_temmie, 1, "Hey wait a minute isn't that the afro boy's name?");
-			scr_text(spr_laser, 1, "We should probably take this for later.");
+			scr_text(spr_laser, 1, "Huh, this thing's got some writing on it. It says... L-e-i-f.");
+			scr_text(spr_temmie, 1, "That's the name of our eyewitness...");
+			scr_text(spr_temmie, 1, "I have a feeling he could be more than just an eyewitness to this case."); 
+			scr_text(spr_laser, 1, "We should probably save this for later.");
 			scr_add_items(["Leif's brick"]);
 			scr_remove_from_room(room, itm_brick);
 			break;

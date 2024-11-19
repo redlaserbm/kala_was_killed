@@ -52,6 +52,7 @@ function scr_remove_items(_items = [], _context = obj_inventory, _instant = fals
 	
 	e_inv = _inv;
 	e_items = _items;
+	e_context = _context;
 	
 	var _method = function () {
 		var _i = 0;
@@ -64,7 +65,11 @@ function scr_remove_items(_items = [], _context = obj_inventory, _instant = fals
 				if e_inv[_i] == e_items[_j] {
 					array_delete(e_inv, _i, 1);
 					array_delete(e_items, _j, 1);
-				
+					if _i == e_context.click_pos {
+						e_context.click_pos = -1;	
+					} else if _i < e_context.click_pos {
+						e_context.click_pos -= 1;
+					}
 					_inc_ind_i = false;
 					break;
 				}
@@ -79,7 +84,7 @@ function scr_remove_items(_items = [], _context = obj_inventory, _instant = fals
 	if _instant {
 		_method();
 	} else {
-		array_push(end_actions, _method);
+		array_push(obj_textbox.end_action, _method);
 	}	
 }
 

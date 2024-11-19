@@ -7,7 +7,9 @@ room_items = ds_map_create();
 ds_map_add(room_items, rm_elevator, [itm_panel, itm_poster_laser, itm_poster_temmie, itm_poster_rito, itm_poster_nums]);
 ds_map_add(room_items, rm_car_interior, [itm_kala_corpse, itm_brick, itm_boundary, itm_phone]);
 ds_map_add(room_items, rm_road, [itm_leif, itm_tree, itm_car]);
+
 ds_map_add(room_items, rm_kala, [itm_comp, itm_journal, itm_news]);
+ds_map_add(room_items, rm_kala_comp, [itm_boundary_comp, itm_control, itm_discord, itm_mechanism]);
 
 active_items = []; // Array of items in the current room.
 created_items = []; // This tracks the instances of the items that were actually created. 
@@ -18,3 +20,5 @@ highlighted_ind = -1;
 
 // This is a struct which tracks the state values of all interactables which have ever been interacted with
 state_variables = {};
+
+fudge_factor = 0;

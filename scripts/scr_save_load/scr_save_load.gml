@@ -52,8 +52,6 @@ function scr_game_unload() {
 
 function scr_game_load(_slot = 0){
 	
-	scr_game_unload();
-	
 	// LOADING THE SAVE STATE
 	
 	// First, let's get the save file we created earlier
@@ -62,6 +60,8 @@ function scr_game_load(_slot = 0){
 		show_debug_message("loading failed!");
 		exit;		
 	}
+	
+	scr_game_unload();
 	
 	var _buffer = buffer_load(_filename);
 	var _json = buffer_read(_buffer, buffer_string);

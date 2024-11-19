@@ -40,13 +40,15 @@ var _can_explore = true;
 for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
 	var _interactable = instance_find(obj_interactable, _i);
 	if _interactable.active {
+		fudge_factor = 0;
 		_can_explore = false;
 		break;
 	}
 }
+fudge_factor += 1;
 
 var _old_ind = highlighted_ind;
-if _can_explore {
+if fudge_factor >= 3 {
 	var _mx = mouse_x;
 	var _my = mouse_y;
 	var _left_click = mouse_check_button_pressed(mb_left);

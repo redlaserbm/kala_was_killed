@@ -12,24 +12,24 @@ for (var _i = 0; _i < instance_number(obj_slider); _i++) {
 }
 
 // Rules to automatically determine if a textbox should be regarded as active or not.
-if ((instance_number(obj_inventory) < 1 || !obj_inventory.active) && (instance_number(obj_logger) < 1 || !obj_logger.active) ) {
-	var _active = true;	
-	for (var _i = 0; _i < instance_number(obj_textbox); _i++) {
-		var _textbox = instance_find(obj_textbox, _i);
-		if _textbox.timer < timer {
-			_active = false;
-			break;
-		}
-	}
+//if ((instance_number(obj_inventory) < 1 || !obj_inventory.active) && (instance_number(obj_logger) < 1 || !obj_logger.active) ) {
+//	var _active = true;	
+//	for (var _i = 0; _i < instance_number(obj_textbox); _i++) {
+//		var _textbox = instance_find(obj_textbox, _i);
+//		if _textbox.timer < timer {
+//			_active = false;
+//			break;
+//		}
+//	}
 	
-	if !active && _active {
-		scr_activate();	
-	}
-	active = _active;
+//	if !active && _active {
+//		scr_activate();	
+//	}
+//	active = _active;
 	
-} else {
-	active = false;	
-}
+//} else {
+//	active = false;	
+//}
 
 if accept_key and timer > 2 {
 	// audio_play_sound(snd_cursor,0,false,0.25);	

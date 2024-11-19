@@ -14,3 +14,13 @@ if is_struct(obj_game.state[$ object_get_name(object_index)]) && array_length(st
 	// There are no values stored for this object. Have obj_game use the values we initialize.
 	obj_game.state[$ object_get_name(object_index)] = state;
 }
+
+state.previous_active = noone;
+
+special_activate = function () {
+	
+}
+
+special_deactivate = function () {
+	
+}

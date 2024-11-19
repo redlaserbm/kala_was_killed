@@ -15,7 +15,7 @@ if !setup {
 var _inv_x = camera_get_view_x(view_camera[0]);
 var _inv_y = camera_get_view_y(view_camera[0]);
 
-var _click = (active_timer > 5) && ((mouse_check_button_released(mb_left) || (hold_timer > hold_threshold)) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480));
+var _click = (active_timer > 5) && ((mouse_check_button_released(mb_left) || ((hold_timer > hold_threshold) && state.detective == noone )) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480));
 var _hold_click = mouse_check_button(mb_left);
 
 if instance_number(itm_map) < 1 && scr_check_item("Crime scene map") {
@@ -122,12 +122,13 @@ if active {
 			if click_pos > -1 && (state.detective != noone) {
 				// We are in "detective" mode and we selected an item. Is the item the right one?
 				var _text_id = scr_context_poll(state.detective, state.inventory[click_pos]);
+				state.previous_active = noone;
 				scr_textbox_create(_text_id);
 				obj_menu.menu_pos = 0;
 			}
 			
 			// If we held the mouse button for long enough, we actually want to explore the item in more detail too!
-			if (hold_timer >= hold_threshold) {
+			if (hold_timer >= hold_threshold) && (state.detective == noone) {
 				_examine_item();
 				click_pos = -1;
 			}
@@ -143,7 +144,7 @@ if active {
 			} else if hover_pos == -1 && (obj_menu.hover_pos == noone) {
 				click_pos = -1;	
 			} else if (hover_pos == click_pos) {
-				if (hold_timer >= hold_threshold) {
+				if (hold_timer >= hold_threshold) && (state.detective == noone) {
 					_examine_item();
 				} else {
 					click_pos = -1;
@@ -185,7 +186,7 @@ if active {
 	}
 	
 	// click_pos gives the index of the actively equipped item
-	if (click_pos != -1) && !_cluttered {
+	if (click_pos > -1) && !_cluttered {
 		var _subimg = ds_map_find_value(global.item_equip, state.inventory[click_pos]);
 		
 		if !is_undefined(_subimg) {

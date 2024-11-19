@@ -17,9 +17,25 @@ if !struct_exists(state, "inventory") {
 	state.inventory[1] = "Laser";
 	
 	state.detective = noone
+	
+	state.previous_active = noone;
 }
 
+show_debug_message("Initialized inventory as: ");
 show_debug_message(state.inventory);
+
+special_activate = function() {
+	obj_menu.switch_menu_pos(4);
+	click_pos = -1;
+}
+
+special_deactivate = function() {
+	if state.previous_active != noone {
+		scr_activate(state.previous_active);
+	}
+}
+// This item will memorize the previous active item before it, so that it knows to open it back up again once it's closed.
+
 
 display = false;
 setup = false;

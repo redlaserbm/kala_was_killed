@@ -111,6 +111,7 @@ function scr_draw_options(_xval, _yval, _options, _alignment = "top_left") {
 		
 		if _options[_i].type == "slider" {
 			scr_draw_slider(_x1 + _max_width - global.textbox.slider_width - 0.5*global.textbox.border_x, _y1 + 0.5*string_height(_options[0].text) - 0.5*sprite_get_height(spr_circle), global.settings, ds_map_find_value(global.map_settings, _options[_i].text));
+			draw_sprite_stretched(spr_line_segment, 0, _x1 + _max_width - global.textbox.slider_width - 0.5*global.textbox.border_x, _y1 + 0.4*sprite_get_height(spr_line_segment), global.textbox.slider_width + sprite_get_width(spr_circle), 0.125*sprite_get_height(spr_line_segment));
 		}
 		
 		_nudge += global.textbox.line_sep;

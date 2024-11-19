@@ -9,12 +9,16 @@ var _yval = 0;
 scr_draw_options(_xval, _yval, option[menu_pos]);
 // draw_text(150,0,option_pos);
 
+switch_menu_pos = function(_pos) {
+	menu_pos = _pos;
+	option_pos = -1; 
+}
+
 switch (menu_pos) {
 	case 0:
 		switch (option_pos) {
 			case 0:
-				menu_pos = 1;
-				option_pos = -1;
+				switch_menu_pos(1);
 				break;
 		}
 		break;
@@ -22,30 +26,25 @@ switch (menu_pos) {
 	case 1:
 		switch (option_pos) {
 			case 0:
-				menu_pos = 4;
-				option_pos = -1;
+				switch_menu_pos(4);
 				with (obj_inventory) {
 					scr_activate();
 				}
 				break;
 			case 1:
-				menu_pos = 4;
-				option_pos = -1;
+				switch_menu_pos(4);
 				with (obj_logger) {
 					scr_activate();
 				}
 				break;
 			case 2:
-				menu_pos = 2;
-				option_pos = -1;
+				switch_menu_pos(2);
 				break;
 			case 3:
-				menu_pos = 7;
-				option_pos = -1;
+				switch_menu_pos(7);
 				break;
 			case 4:
-				menu_pos = 0;
-				option_pos = -1;
+				switch_menu_pos(0);
 				break;
 		}	
 		break;
@@ -55,21 +54,17 @@ switch (menu_pos) {
 		switch (option_pos) {
 			case 0:
 				// Access menu for saving games
-				menu_pos = 5;
-				option_pos = -1;
+				switch_menu_pos(5);
 				break;
 			case 1:
 				// Access menu for loading save files
-				menu_pos = 6;
-				option_pos = -1;
+				switch_menu_pos(6);
 				break;
 			case 2:
-				menu_pos = 3;
-				option_pos = -1;
+				switch_menu_pos(3);
 				break;
 			case 3:
-				menu_pos = 1;
-				option_pos = -1;
+				switch_menu_pos(1);
 				break;
 		}
 		break;
@@ -78,44 +73,46 @@ switch (menu_pos) {
 	case 3:
 		switch (option_pos) {
 			case 3:
-				menu_pos = 2;
-				option_pos = -1;
+				switch_menu_pos(2);
 				break;
 		}
 		break;
 	
-	// Menu that shows when we open the logger or the inventory
+	// Menu that shows when we open an active item
 	case 4:
 		switch (option_pos) {
 			case 0:
-				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective)) && obj_inventory.active) && !(instance_number(itm_map) > 0 && !(itm_map.state.context_check == false)) {// (instance_number(obj_logger) > 0 && obj_logger.active) || ((instance_number(obj_inventory) > 0) && obj_inventory.active && (!is_string(obj_inventory.state.detective.item))) {
+				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective)) && obj_inventory.active) && !(instance_number(itm_map) > 0 && !(itm_map.state.context_check == false)) {
 					// If we click the back button while the inventory is pulled up...
 					// Close the inventory!
 					// If we click the back button while examining an item in the inventory...
 					// Return to the inventory! Wipe any text interactions currently occurring as a consequence of examining an item.
-					if obj_inventory.active || obj_logger.active {
-						menu_pos = 0;
-						option_pos = -1;
-						obj_inventory.active = false;
-						obj_logger.active = false;
-					} else {
-						for (var _i = 0; _i < instance_number(obj_textbox); _i++) {
-							var _textbox = instance_find(obj_textbox, _i);
-							if _textbox.dictionary = scr_item_examination {
-								_textbox.force_destroy = true;
-								instance_destroy(_textbox);	
-							}
+					switch_menu_pos(0);
+					for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
+						var _interactable = instance_find(obj_interactable, _i);
+						if _interactable.active {
+							scr_deactivate(_interactable);
+							break;
 						}
-						scr_activate(obj_inventory);	
 					}
-					//if instance_number(itm_map) > 0 && itm_map.active {
-					//	itm_map.active = false;
-					//	scr_activate(obj_inventory);
+					
+					//if obj_inventory.active || obj_logger.active {
+					//	switch_menu_pos(0);
+					//	for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
+					//		var _interactable = instance_find(obj_interactable, _i);
+					//		if _interactable.active {
+					//			scr_deactivate();
+					//		}
+					//	}
 					//} else {
-					//	menu_pos = 0;
-					//	option_pos = -1;
-					//	obj_logger.active = false;
-					//	obj_inventory.active = false;	
+					//	for (var _i = 0; _i < instance_number(obj_textbox); _i++) {
+					//		var _textbox = instance_find(obj_textbox, _i);
+					//		if _textbox.dictionary = scr_item_examination {
+					//			_textbox.force_destroy = true;
+					//			instance_destroy(_textbox);	
+					//		}
+					//	}
+					//	scr_activate(obj_inventory);	
 					//}
 				}
 				option_pos = -1;
@@ -128,8 +125,7 @@ switch (menu_pos) {
 			scr_game_save(option_pos);	
 			option_pos = -1;
 		} else if (option_pos == 3) {
-			menu_pos = 2;
-			option_pos = -1;
+			switch_menu_pos(2);
 		}
 		break;
 		
@@ -138,8 +134,7 @@ switch (menu_pos) {
 			scr_game_load(option_pos);	
 			option_pos = -1;
 		} else if (option_pos == 3) {
-			menu_pos = 2;
-			option_pos = -1;
+			switch_menu_pos(2);
 		}
 		break;
 	
@@ -148,22 +143,18 @@ switch (menu_pos) {
 		switch (option_pos) {
 			case 0:
 				scr_warp(2);
-				menu_pos = 0;
-				option_pos = -1;
+				switch_menu_pos(0);
 				break;
 			case 1:
 				scr_warp(3);
-				menu_pos = 0;
-				option_pos = -1;
+				switch_menu_pos(0);
 				break;
 			case 2:
 				scr_warp(4);
-				menu_pos = 0;
-				option_pos = -1;
+				switch_menu_pos(0);
 				break;
 			case 3:
-				menu_pos = 1;
-				option_pos = -1;
+				switch_menu_pos(1);
 				break;
 		}
 		break;

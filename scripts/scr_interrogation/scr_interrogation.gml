@@ -219,10 +219,12 @@ function scr_interrogation(_text_id){
 			break;
 			
 		case "incorrect":
+			var _detective = obj_inventory.state.detective;
+			obj_inventory.state.detective = noone;
 			scr_text(spr_laser, 1, "Haha you got it wrong lol");
 			scr_text(spr_temmie, 1, "I will murder you and your whole entire family.");
 			scr_text(spr_temmie, 1, "Anyways, let's try this again.");
-			scr_open_inventory();
+			scr_open_inventory(_detective);
 			break;
 			
 		case "incorrect_map":

@@ -104,3 +104,5 @@ menu_hover = false;
 hover_pos = noone;
 
 depth = -15001;
+
+switch_menu_pos = false;

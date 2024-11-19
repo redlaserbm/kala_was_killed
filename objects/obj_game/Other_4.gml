@@ -19,6 +19,11 @@ switch (room) {
 		break;
 	case rm_kala:
 		global.dictionary = scr_kala_room;
+		obj_music.change_music(snd_kala_room);
+		break;
+	case rm_kala_comp:
+		global.dictionary = scr_kala_room;
+		obj_music.change_music(snd_kala_room);
 		break;
 }
 

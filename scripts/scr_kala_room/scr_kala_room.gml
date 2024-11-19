@@ -41,5 +41,13 @@ function scr_kala_room(_text_id){
 				scr_text(spr_temmie, 1, "Hm...");
 				scr_text(spr_temmie, 1, "I think I'll leave it be.");
 				break;
+		
+		case "comp_discord":
+			scr_text(spr_temmie, 1, "Laser add details here.");
+			break;
+		
+		case "comp_control":
+			scr_text(spr_temmie, 1, "Laser, you also need details here.");
+			break;
 	}
 }
