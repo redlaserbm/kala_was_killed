@@ -9,17 +9,7 @@ var _down = mouse_wheel_down();
 
 var _aggregate_height = 0;
 
-var _key_log = false; // keyboard_check_pressed(global.key_log);
-
-if _key_log {
-	if active {
-		active = false;	
-	} else {
-		scr_activate();	
-	}
-}
-
-if active {
+if state.active {
 	// Do not try to draw the logs unless we are in the log state!
 	
 	// I'll use this variable to automatically determine the y-coordinate of each textbox in the logger.

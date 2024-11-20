@@ -25,6 +25,9 @@ switch (room) {
 		global.dictionary = scr_kala_room;
 		obj_music.change_music(snd_kala_room);
 		break;
+	case rm_realm:
+		global.dictionary = scr_confrontation;
+		break;
 }
 
 // This object spawns multiple other important objects essential to the game.

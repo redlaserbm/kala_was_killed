@@ -14,7 +14,8 @@ function scr_game_save(_slot = 0){
 		_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1, dictionary: "default"};	
 	}
 	
-	_game_data.current_room = room_get_name(room);
+	_game_data.current_room = room;
+	show_debug_message("Data saved at " + room_get_name(_game_data.current_room));
 	
 	var _filename = "savedata_" +  string(_slot) + ".sav";
 	var _json = json_stringify(_game_data);
@@ -27,7 +28,7 @@ function scr_game_save(_slot = 0){
 	show_debug_message(_game_data);
 	
 	//Display a message showing that the game was saved.
-	obj_game.alarm[1] = 60;
+	// obj_game.alarm[1] = 60;
 }
 
 function scr_game_unload() {
@@ -73,63 +74,46 @@ function scr_game_load(_slot = 0){
 	obj_game.state = _load_array;
 	
 	// Next, let's go to the room where the save file is located.
-	room_goto(asset_get_index(_load_array.current_room));
+	room_goto(_load_array.current_room);
+	
+	show_debug_message("Loaded into " + room_get_name(_load_array.current_room));
 	
 	// Next, spawn the necessary objects to get the game up and running.
 	scr_obj_init();
 	
-	// Display the text that the player was looking at at the time that they saved
-	if _load_array.obj_textbox.text_id != "-1" {
+	// If there was an active item at the time of saving, we must produce this active item
+	var _items = struct_get_names(_load_array);
+	for (var _i = 0; _i < array_length(_items); _i++) {
+		// show_debug_message("info");
+		// show_debug_message( _load_array[$ _items[_i]]);
+		// show_debug_message( _items[_i]);
+		if variable_struct_exists( _load_array[$ _items[_i]], "active") { 
+			if _load_array[$ _items[_i]].active {
+				if _items[_i] == object_get_name(obj_textbox) {
+					// There are special instructions for obj_textbox because these special instructions allow us
+					// to get away with storing less data in the state variables.
+					if _load_array.obj_textbox.text_id != "-1" {
 		
-		// Create the textbox and skip to the page they were viewing
-		show_debug_message("Loading textbox");
-		scr_textbox_create(_load_array.obj_textbox.text_id, _load_array.obj_textbox.dictionary);
-		with (obj_textbox) {
-			page = _load_array.obj_textbox.page;
+						// Create the textbox and skip to the page they were viewing
+						// show_debug_message("Loading textbox");
+						scr_textbox_create(_load_array.obj_textbox.text_id, _load_array.obj_textbox.dictionary);
+						with (obj_textbox) {
+							page = _load_array.obj_textbox.page;
+						}
+					}
+				} else {
+					show_debug_message("Activating " + _items[_i]);
+					instance_create_depth(0,0,obj_itemizer.depth, asset_get_index(_items[_i]));
+				
+				}
+			}
 		}
-		
-		//	// Infer the current background image that should be displayed by looking back at previous pages
-		//	var _i = array_length(bg) - 1
-		//	while bg[_i] == noone {
-		//		_i -= 1;
-		//		if _i < 0 {
-		//			break;	
-		//		}
-		//	}
-		//	if _i > 0 {
-		//		obj_game.fade_time = 0;
-		//		obj_game.bg_new = bg[_i];	
-		//	}
-			
-		//	// Do the same thing but for the music
-		//	_i = array_length(sound) - 1
-		//	while sound[_i] == noone {
-		//		_i -= 1;
-		//		if _i < 0 {
-		//			break;	
-		//		}
-		//	}
-		//	if _i > 0 {
-		//		obj_game.bg_music_new = sound[_i];	
-		//	}
-			
-		//}
 	}
 	
-	//var _active_item = asset_get_index(obj_game.state.active_item);
-	//var _inst = false;
-	//show_debug_message("Identified as the active item...");
-	//show_debug_message(object_get_name(_active_item));
+	// This code is probably redundant. We will address this soon.
 	
-	//if instance_number(_active_item) < 1 {
-	//	_inst = instance_create_depth(0,0,obj_itemizer.depth, _active_item);
-	//	show_debug_message(_active_item);
+	
 	//}
-	//scr_activate(_inst);
-	
-	// Display a message notifying that the game file was loaded successfully
-	obj_game.alarm[2] = 1;
-	obj_game.alarm[0] = 1;
 	
 	show_debug_message("Loaded game!");
 	show_debug_message(_load_array);

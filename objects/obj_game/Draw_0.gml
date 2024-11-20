@@ -31,6 +31,14 @@ switch (room){
 			scr_textbox_create("testimony", scr_interrogation);
 		}
 		break;
+		
+	case rm_realm:
+		if (instance_number(obj_transition) < 1) && !state.flags.realm_start {
+			state.flags.realm_start = true;
+			scr_textbox_create("found", scr_confrontation);
+		}
+		break;
+		
 }
 
 if alarm[1] > 0 {

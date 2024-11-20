@@ -39,7 +39,7 @@ if !room_setup {
 var _can_explore = true;
 for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
 	var _interactable = instance_find(obj_interactable, _i);
-	if _interactable.active {
+	if _interactable.state.active {
 		fudge_factor = 0;
 		_can_explore = false;
 		break;
@@ -61,12 +61,14 @@ if fudge_factor >= 3 {
 		}
 	}
 	
+	// TODO: Some items should NOT be highlighted when we put our mouse over them (like when interacting with Kala's computer)
+	// We need to take note of this.
 	if highlighted_ind >= 0 {
 		draw_sprite_ext
 		(
 			object_get_sprite(active_items[highlighted_ind]),
 			active_items[highlighted_ind].image_index,
-			0, 0,
+			active_items[highlighted_ind].x, active_items[highlighted_ind].y,
 			1, //width
 			1, //height
 			0,

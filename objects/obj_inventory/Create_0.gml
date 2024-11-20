@@ -21,6 +21,8 @@ if !struct_exists(state, "inventory") {
 	state.previous_active = noone;
 }
 
+show_debug_message("---");
+show_debug_message("Creating obj_inventory");
 show_debug_message("Initialized inventory as: ");
 show_debug_message(state.inventory);
 
@@ -119,3 +121,5 @@ active_timer = 0;
 hold_timer = 0;
 hold_threshold = 20;
 double_click_threshold = 20;
+
+show_debug_message("End obj_inventory Create");

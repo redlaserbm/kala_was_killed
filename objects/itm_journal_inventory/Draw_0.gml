@@ -3,7 +3,7 @@
 // var _left_click = mouse_check_button_pressed(mb_left) && (instance_number(obj_menu) > 0 && obj_menu.hover_pos < 0);
 accept_key = mouse_check_button_pressed(mb_left);
 
-if active {
+if state.active {
 	draw_sprite(spr_journal_entries, state.page, 0,0);	
 	scr_draw_options(640,480, ["Next Page", "Previous Page"], "bottom_right");
 	if option_pos > -1 {

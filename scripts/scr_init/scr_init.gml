@@ -7,6 +7,7 @@ ds_map_add(speaker, spr_temmie, "Temmie");
 ds_map_add(speaker, spr_laser, "Laser");
 ds_map_add(speaker, spr_leif, "Leif");
 ds_map_add(speaker, spr_jakkop, "Jakkop");
+ds_map_add(speaker, spr_kala, "Kala");
 
 // Helps obj_logger determine which portrait sprites to use
 mini_speaker = ds_map_create();
@@ -15,6 +16,7 @@ ds_map_add(mini_speaker, spr_laser, spr_laser_mini);
 ds_map_add(mini_speaker, spr_leif, spr_leif_mini);
 ds_map_add(mini_speaker, spr_jakkop, spr_jakkop_mini);
 ds_map_add(mini_speaker, noone, spr_narrator_mini); //This is an empty sprite
+ds_map_add(mini_speaker, spr_kala, spr_kala_mini);
 
 // Helps obj_main_menu determine how to make sliders influence the correct variables
 map_settings = ds_map_create();
@@ -76,6 +78,8 @@ textbox.nameplate_offset_y = textbox.offset_y - textbox.nameplate_height;
 textbox.line_width = textbox.width - textbox.border_x - textbox.border_y;
 textbox.spr_w = sprite_get_width(textbox.spr);
 textbox.spr_h = sprite_get_height(textbox.spr);
+
+font = fnt_ocr;
 
 // Settings to consider
 settings = {

@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-if active {
+state.standby = false;
+
+if state.active {
 	scr_textbox_create("journal");	
 }

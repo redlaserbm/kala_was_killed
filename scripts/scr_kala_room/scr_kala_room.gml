@@ -2,6 +2,19 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_kala_room(_text_id){
 	switch (_text_id) {
+		case "solved":
+			scr_text(spr_temmie, 1, "So this is what you've been hiding...");
+			scr_room_goto(rm_realm);
+			break;
+			
+		case "unsolved":
+			scr_text(spr_temmie, 1, "Y'know, maybe Laser was right. Maybe I am bad at puzzles...");
+			break;
+		
+		case "comp_react":
+			scr_text(spr_temmie, 1, "Huh? Something moved in the background...");
+			break;
+			
 		case "temmie_news":
 			scr_text(spr_temmie, 1, "Hm...");
 			scr_text(spr_temmie, 1, "It's a news article from the time Laser's house blew up.");

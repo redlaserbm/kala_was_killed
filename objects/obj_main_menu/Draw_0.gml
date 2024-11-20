@@ -62,6 +62,8 @@ switch (menu_pos) {
 		break;
 }
 
-if room != rm_main_menu {
-	instance_destroy();	
-}
+
+// Redundant since this object is not persistent
+//if room != rm_main_menu {
+//	instance_destroy();
+//}

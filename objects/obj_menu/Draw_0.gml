@@ -5,7 +5,7 @@ accept_key = mouse_check_button_pressed(mb_left) && (obj_game.current_state != 1
 
 var _xval = 0;
 var _yval = 0;
-
+ 
 scr_draw_options(_xval, _yval, option[menu_pos]);
 // draw_text(150,0,option_pos);
 
@@ -82,7 +82,7 @@ switch (menu_pos) {
 	case 4:
 		switch (option_pos) {
 			case 0:
-				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective)) && obj_inventory.active) && !(instance_number(itm_map) > 0 && !(itm_map.state.context_check == false)) {
+				if (instance_number(obj_inventory) > 0) && !((is_string(obj_inventory.state.detective)) && obj_inventory.state.active) && !(instance_number(itm_map) > 0 && !(itm_map.state.context_check == false)) {
 					// If we click the back button while the inventory is pulled up...
 					// Close the inventory!
 					// If we click the back button while examining an item in the inventory...
@@ -90,7 +90,7 @@ switch (menu_pos) {
 					switch_menu_pos(0);
 					for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
 						var _interactable = instance_find(obj_interactable, _i);
-						if _interactable.active {
+						if _interactable.state.active {
 							scr_deactivate(_interactable);
 							break;
 						}

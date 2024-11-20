@@ -42,11 +42,10 @@ state.flags = {
 	interrogation_help: false, // Turns true when Temmie successfully interrogates Leif about how the lights could've been on at Laser's house
 
 	interrogation_nuance: false, // This flag triggers if Leif argues during the dialogue that the brick is irrelevant to the crime scene.
-	interrogation_complete: false
-}
+	interrogation_complete: false,
 
-state.active_item = false;
-state.previous_active_item = false;
+	realm_start: false
+}
 
 // Set the loop points for audio tracks in the game (if necessary)
 init_setup = false;

@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_interrogation(_text_id){
 	
-	switch (text_id) {
+	switch (_text_id) {
 		case "testimony":
 			scr_text(spr_temmie, 1, "Can you run through what happened at the scene of the crime one more time?");
 			scr_text(spr_leif, 1, "Sure. At about 9pm I was walking along the side of the road, when suddenly, a tree started falling onto the road!");
@@ -191,6 +191,7 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "Once you get in, it's up to you to figure out to access the secret passage.");
 			scr_add_items(["Kala's key"]);
 			scr_goto("interrogation_end");
+			break;
 			
 		case "interrogation_end":
 			scr_text(spr_temmie, 1, "Hmm... I see.");
@@ -215,7 +216,7 @@ function scr_interrogation(_text_id){
 		case "interrogation_end_1":
 			scr_text(spr_temmie, 1, "(I need to figure out Kala's whereabouts...)");
 			scr_text(spr_temmie, 1, "(This key from Leif will get me into her apartment room, but from there, I need to figure out how to access that secret passage...)");
-			scr_room_goto(rm_kala_room);
+			scr_room_goto(rm_kala);
 			break;
 			
 		case "incorrect":

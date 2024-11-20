@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if active {
+if state.active {
 	if state.interactions == 0 {
 		scr_textbox_create("tree", scr_crime_scene);
 	} else if state.interactions == 1 {

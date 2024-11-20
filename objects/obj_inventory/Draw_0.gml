@@ -6,6 +6,7 @@ if !setup {
 	setup = true;
 	
 	draw_set_font(global.main_font);
+	draw_set_color(c_white);
 	
 	// When we set a point to draw text from, we will be setting the TOP-LEFT most point of that text
 	draw_set_valign(fa_top);
@@ -59,7 +60,7 @@ if scr_check_item("Temmie's lightblade") {
 
 hover_pos = -1;
 
-if active {
+if state.active {
 	active_timer += 1;
 	// Draw the textbox that we will display all inventory items on.
 	draw_sprite_ext(textbox_spr, textbox_img, _inv_x + inv_offset_x, _inv_y + inv_offset_y, inv_width/textbox_spr_w, inv_height/textbox_spr_h, 0, c_white, alpha);
@@ -180,7 +181,7 @@ if active {
 	var _cluttered = false;
 	for (var _i = 0; _i < instance_number(obj_interactable); _i++) {
 		var _item = instance_find(obj_interactable, _i);
-		if _item.active {
+		if _item.state.active {
 			_cluttered = true;	
 		}
 	}

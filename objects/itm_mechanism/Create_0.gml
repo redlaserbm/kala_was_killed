@@ -4,4 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-state.config = [1,0,1];
+if !variable_struct_exists(state, "config") {
+	state.config = [1,0,1];
+}

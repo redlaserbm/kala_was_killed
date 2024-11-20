@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if active {
+if state.active {
 	if scr_check_item("Car key") {
 		if state.key_interactions < 1 {
 			scr_textbox_create("keys", scr_crime_scene);

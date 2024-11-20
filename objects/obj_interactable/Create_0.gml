@@ -1,11 +1,17 @@
 ///@description This is an object that can be interacted with.
 
-// Determines whether or not you can interact with the object.
-active = false;
-
 // A collection of *state* variables. 
 // When the game is saved, the value of these state variables is stored.
 state = {};
+
+// Determines whether or not you can interact with the object.
+state.active = false;
+
+// Records the previous active object at the time the object was made active
+state.previous_active = noone;
+
+// Determines if an inactive item should still display its interface
+state.standby = false;
 
 if is_struct(obj_game.state[$ object_get_name(object_index)]) && array_length(struct_get_names(obj_game.state[$ object_get_name(object_index)])) > 0 {
 	// There are already values stored for this object prior. Use those values. 
@@ -15,7 +21,7 @@ if is_struct(obj_game.state[$ object_get_name(object_index)]) && array_length(st
 	obj_game.state[$ object_get_name(object_index)] = state;
 }
 
-state.previous_active = noone;
+
 
 special_activate = function () {
 	
