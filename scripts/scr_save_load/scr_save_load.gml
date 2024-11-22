@@ -9,10 +9,10 @@ function scr_game_save(_slot = 0){
 	// Next, let's copy the state struct from obj_interactable
 	var _game_data = variable_clone(obj_game.state);
 	
-	if instance_number(obj_textbox) < 1 {
-		show_debug_message("There are no textboxes on screen");
-		_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1, dictionary: "default"};	
-	}
+	//if instance_number(obj_textbox) < 1 {
+	//	show_debug_message("There are no textboxes on screen");
+	//	_game_data[$ "obj_textbox"] = {text_id: "-1", page: -1, dictionary: "default"};	
+	//}
 	
 	_game_data.current_room = room;
 	show_debug_message("Data saved at " + room_get_name(_game_data.current_room));

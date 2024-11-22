@@ -4,6 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-if array_length(struct_get_names(state)) < 1 {
+if !variable_struct_exists(state, "interactions") {
 	state.interactions = 0;
 }

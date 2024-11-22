@@ -43,6 +43,10 @@ state.flags = {
 
 	interrogation_nuance: false, // This flag triggers if Leif argues during the dialogue that the brick is irrelevant to the crime scene.
 	interrogation_complete: false,
+	
+	temmie_alone: false,
+	
+	kala_start: false,
 
 	realm_start: false
 }

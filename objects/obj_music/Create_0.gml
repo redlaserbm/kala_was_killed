@@ -1,7 +1,7 @@
 /// @description This object is responsible for determining what music gets played in the game at what time
 
 // Controls how long it takes for music to fade in seconds
-music_fade_time = 2;
+music_fade_time = 1;
 
 bg_music = snd_main_menu;
 bg_music_new = snd_main_menu;

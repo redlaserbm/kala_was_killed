@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 accept_key = mouse_check_button_pressed(mb_left) && state.active && (obj_menu.hover_pos == noone) && (obj_menu.option_pos < 0); // Only try to advance dialogue if we are in the game state.
-skip_key = mouse_check_button_pressed(mb_right) && state.active;
+skip_key = mouse_check_button_pressed(mb_right) && state.active && timer > 2;
 
 for (var _i = 0; _i < instance_number(obj_slider); _i++) {
 	var _slider = instance_find(obj_slider, _i);
@@ -64,6 +64,8 @@ if !setup {
 		obj_logger.text[obj_logger.ind] = text[page];
 		obj_logger.portrait[obj_logger.ind] = portrait[page];
 	}
+	
+	show_debug_message("text: " + state.text_id);
 }
 
 draw_set_font(global.font);

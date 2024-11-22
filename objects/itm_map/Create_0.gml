@@ -4,6 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
-state.context_check = false;
+if !variable_struct_exists(state, "context_check") {
+	state.context_check = false;
+}
 
 active_timer = 0;

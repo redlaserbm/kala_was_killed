@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+state.standby = false;
 if state.active {
 	if scr_check_item("Car key") {
 		if state.key_interactions < 1 {

@@ -6,3 +6,7 @@ event_inherited();
 
 x = 35;
 y = 60;
+
+if !variable_struct_exists(state, "interactions") {
+	state.interactions = 0;
+}

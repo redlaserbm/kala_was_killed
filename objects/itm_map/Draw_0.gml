@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var _left_click = mouse_check_button_pressed(mb_left) && (active_timer > 5);
+var _left_click = mouse_check_button_pressed(mb_left) && (active_timer > 5) && obj_menu.hover_pos < 0;
 var _mx = mouse_x;
 var _my = mouse_y;
 

@@ -9,9 +9,15 @@ switch (room) {
 		break;
 	case rm_road:
 		global.dictionary = scr_crime_scene;
+		obj_music.change_music(snd_investigation_outdoors);
 		break;
 	case rm_car_interior:
 		global.dictionary = scr_crime_scene;
+		if state.flags.keys_remark {
+			obj_music.change_music(snd_investigation_indoors);
+		} else {
+			obj_music.change_music(snd_still_alive);	
+		}
 		break;
 	case rm_interrogation:
 		global.dictionary = scr_interrogation;

@@ -15,22 +15,25 @@ function scr_confrontation(_text_id){
 			scr_text(spr_kala, 1, "The reality was, he just blew up...");
 			scr_text(spr_kala, 1, "I don't know why it happened, the software they gave me to use on him was buggy, but...");
 			scr_text(spr_kala, 1, "One day, he was fine, the next day, I look at the news and see rubble."); 
-			scr_text(spr_kala, 1, "And right then, the agency bagged by head and brought me into that very interrogation room you were at earlier.");
+			scr_text(spr_kala, 1, "And right then, the agency bagged my head and brought me into that very interrogation room you were at earlier.");
 			
 			scr_text(spr_temmie, 1, "...");
 			scr_text(spr_kala, 1, "They didn't want me to testify in court, because they didn't want the word to get out about what *really* happened that day.");
-			scr_text(spr_kala, 1, "If it did, the government would pulled all the funding for Laser right then and there. Public trust in the LIA would've completely evaporated.");
+			scr_text(spr_kala, 1, "If it did, the government would pulled all the funding for Laser right then and there."); 
+			scr_text(spr_kala, 1, "Public trust in the LIA would've completely evaporated.");
 			scr_text(spr_kala, 1, "The agency would've dissolved. None of us would've had jobs. Not even you.");
 			scr_text(spr_temmie, 1, "...");
-			scr_text(spr_kala, 1, "They offered me a deal; they wouldn't prosecute me, and the truth wouldn't come out, as long as I stayed on board and helped fix up their little mess.");
+			scr_text(spr_kala, 1, "They offered me a deal.");
+			scr_text(spr_kala, 1, "They wouldn't prosecute me, and the truth wouldn't come out, as long as I stayed on board and helped fix up their little mess.");
 			
 			scr_text(spr_temmie, 1, "Why wouldn't they just hire someone else?");
-			scr_text(spr_kala, 1, "Model rigging isn't a one-size fits all kind of job. You can't just give the job to someone else and have them continue where I left off.");
-			scr_text(spr_kala, 1, "At least, not without the notes I've written down about the job. I stashed them somewhere safe so I could leverage my ability against them.");
+			scr_text(spr_kala, 1, "Model rigging isn't a one-size fits all kinda job. You can't just give my work to someone else and they just do it.");
+			scr_text(spr_kala, 1, "It doesn't work like that. At least, not without the notes I've written down about the job.");
+			scr_text(spr_kala, 1, "I stashed them somewhere safe so I could leverage my ability against them.");
 			scr_text(spr_kala, 1, "If I didn't, they probably would've thrown me in a jail cell anyways.");
 			
 			scr_text(spr_temmie, 1, "But why run now after all this time?");
-			scr_text(spr_temmie, 1, "They gave you a deal, and you got to stay free. So, everything worked out in the end, no?");
+			scr_text(spr_temmie, 1, "They gave you a deal, they let you run free. So, everything worked out in the end, no?");
 			scr_text(spr_kala, 1, "No, it didn't.");
 			
 			scr_text(spr_kala, 1, "They kept me on, but they docked my pay in the process. I couldn't speak up about it.");

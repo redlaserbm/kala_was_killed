@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":52.965534,
+  "duration":66.20692,
   "name":"snd_kala_room",
   "parent":{
     "name":"Music",

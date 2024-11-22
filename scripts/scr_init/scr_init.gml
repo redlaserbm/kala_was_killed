@@ -29,6 +29,9 @@ ds_map_add(map_settings, "Master Volume", "volume");
 item_equip = ds_map_create();
 ds_map_add(item_equip, "Temmie's knife", 0);
 
+// Determines where to loop certain music tracks
+audio_sound_loop_start(snd_investigation_outdoors, 20.570);
+
 // What font will we use for drawing text? What color should that font be?
 main_font = fnt_ocr;
 main_font_color = make_color_rgb(255,255,255);

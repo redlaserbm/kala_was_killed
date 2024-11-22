@@ -12,12 +12,12 @@ function scr_activate(_instance = self, _memorize = true){
 		var _interactable = instance_find(obj_interactable,_i);
 		
 		// NOTE: Our current infrastracture does NOT support multiple items being active at once
-		if _interactable.state.active {
+		show_debug_message("Trying to deactivate " + object_get_name(_interactable.object_index));
+		if variable_instance_exists(_interactable, "state") && variable_struct_exists(_interactable.state, "active") && _interactable.state.active {
 			_previous_active = _interactable;
 			show_debug_message("Deactivated " + object_get_name(_previous_active.object_index));
+			_interactable.state.active = false;
 		}
-		
-		_interactable.state.active = false;
 	}
 	
 	// Make the target interactable active

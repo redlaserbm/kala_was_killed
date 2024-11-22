@@ -195,3 +195,11 @@ function scr_map_poll(_context = false) {
 	}
 	array_push(end_action, _method);
 }
+
+function scr_change_music(_music, _fade_time = obj_music.music_fade_time) {
+	e_music = _music;
+	var _method = function () {
+		obj_music.bg_music_new = e_music;	
+	}
+	array_push(end_action, _method);
+}

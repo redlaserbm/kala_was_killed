@@ -148,6 +148,11 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "...");
 			scr_text(spr_leif, 1, "Ok, I've had enough fun playing your what-if game, Temmie.");
 			scr_text(spr_leif, 1, "I want you play mine.");
+			scr_change_music(snd_still_alive);
+			scr_goto("brick_theory_37");
+			break;
+		
+		case "brick_theory_37":
 			scr_text(spr_temmie, 1, "Hm?");
 			scr_text(spr_leif, 1, "Yeah, you see, what if... Kala was still alive?");
 			scr_text(spr_temmie, 1, "That's impossible! We were all over that corpse just now there's no way she could be alive right now.");
@@ -169,7 +174,10 @@ function scr_interrogation(_text_id){
 			scr_text(spr_jakkop, 1, "Yeah so get this, I was hungry and wanted food, so I drove off to the donut shop to get some donuts, and then I came back.");
 			scr_text(spr_temmie, 1, "This is ridiculous!");
 			scr_text(spr_jakkop, 1, "Yeah idk where she went but uh, I guess that's your job now to go find her uhhh, yeah good luck.");
+			scr_goto("brick_theory_5");
+			break;
 			
+		case "brick_theory_5":
 			scr_text(spr_leif, 1, "I happen to know exactly where she's disappeared off to. And I'll be happy to tell you...");
 			scr_text(spr_temmie, 1, "Ok then, tell us jackass.");
 			scr_text(spr_leif, 1, "...on the condition that I get to walk free.");
@@ -177,7 +185,7 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "Temmie, think about it this way. You thought I killed someone. That someone is running off free into the distance.");
 			scr_text(spr_leif, 1, "Try placing me in a court of law and see how far the prosecution's case goes.");
 			scr_text(spr_laser, 1, "You literally destroyed my house! Do you realize how long it's gonna take to fix that?");
-			scr_text(spr_laser, 1, "Every day that house isn't fixed is a day I can't hang my robo-weewee out in the comfort of my own kitchen.");
+			scr_text(spr_laser, 1, "Every day that house isn't fixed is a day I can't let robo junk hang in the comfort of my own kitchen.");
 			scr_text(spr_temmie, 1, "(look of absolute disgust)");
 			scr_text(spr_temmie, 1, "Ok Leif, I get it. Tell me where she is and I'll let you go.");
 			scr_text(spr_laser, 1, "What? That's thousands in property damage he caused it's literally a slam dunk case if we bring him in!");
@@ -206,16 +214,17 @@ function scr_interrogation(_text_id){
 			scr_text(spr_temmie,1, "...");
 			scr_text(spr_temmie, 1, "Yes.");
 			scr_text(spr_laser, 1, "*sigh*");
-			
-			scr_text(noone, 0, "Laser escorts Leif out of the room. You are now alone.");
-			scr_remove_items(["Laser"]);
 			scr_goto("interrogation_end_1");
-			scr_text(noone, 0, "You can combine items in the inventory by clicking on one item while another item is selected.");
+			scr_remove_items(["Laser", "Power lines", "Road observation", "Leif's brick", "Crime scene map", "Kala's phone"]);
 			break;
 			
+			
 		case "interrogation_end_1":
+			scr_text(noone, 0, "Laser escorts Leif out of the room. You are now alone.");
+			obj_game.state.flags.temmie_alone = true;
 			scr_text(spr_temmie, 1, "(I need to figure out Kala's whereabouts...)");
-			scr_text(spr_temmie, 1, "(This key from Leif will get me into her apartment room, but from there, I need to figure out how to access that secret passage...)");
+			scr_text(spr_temmie, 1, "(This key from Leif will get me into her apartment room...)");
+			scr_text(spr_temmie, 1, "(But from there, I'll need to figure out how to access that secret passage...)");
 			scr_room_goto(rm_kala);
 			break;
 			

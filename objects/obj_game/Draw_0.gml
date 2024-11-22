@@ -2,6 +2,36 @@
 // In other words, this draw event is basically a "theatre background" of sorts.
 
 switch (room){
+		
+	case rm_car_interior:
+		if (instance_number(obj_transition) < 1) && (!state.flags.keys_remark) {
+			state.flags.keys_remark = true;
+			scr_textbox_create("keys_remark", global.dictionary);
+		}
+		break;
+		
+	case rm_interrogation:
+		if (instance_number(obj_transition) < 1) && !state.flags.interrogation_start {
+			state.flags.interrogation_start = true;
+			scr_textbox_create("testimony", global.dictionary);
+		}
+		break;
+		
+	case rm_realm:
+		if (instance_number(obj_transition) < 1) && !state.flags.realm_start {
+			state.flags.realm_start = true;
+			scr_textbox_create("found", global.dictionary);
+		}
+		break;
+		
+	case rm_kala:
+		if (instance_number(obj_transition) < 1) && !state.flags.kala_start {
+			state.flags.kala_start = true;
+			scr_textbox_create("start", global.dictionary);
+		}
+		break;
+		
+	// Legacy code from "Temmie is Trapped!"
 	case rm_leif:
 		draw_sprite(spr_leif_office,0,0,0);
 		break;
@@ -17,28 +47,6 @@ switch (room){
 			draw_sprite(spr_elevator,0,0,0);
 		}
 		break;
-		
-	case rm_car_interior:
-		if (instance_number(obj_transition) < 1) && (!state.flags.keys_remark) {
-			state.flags.keys_remark = true;
-			scr_textbox_create("keys_remark", scr_crime_scene);
-		}
-		break;
-		
-	case rm_interrogation:
-		if (instance_number(obj_transition) < 1) && !state.flags.interrogation_start {
-			state.flags.interrogation_start = true;
-			scr_textbox_create("testimony", scr_interrogation);
-		}
-		break;
-		
-	case rm_realm:
-		if (instance_number(obj_transition) < 1) && !state.flags.realm_start {
-			state.flags.realm_start = true;
-			scr_textbox_create("found", scr_confrontation);
-		}
-		break;
-		
 }
 
 if alarm[1] > 0 {

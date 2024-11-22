@@ -122,6 +122,7 @@ if state.active {
 			
 			if click_pos > -1 && (state.detective != noone) {
 				// We are in "detective" mode and we selected an item. Is the item the right one?
+				scr_deactivate();
 				var _text_id = scr_context_poll(state.detective, state.inventory[click_pos]);
 				state.previous_active = noone;
 				scr_textbox_create(_text_id);

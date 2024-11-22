@@ -42,10 +42,3 @@ function scr_force_go() {
 	}
 	return _method;
 }
-
-function scr_change_music(_music, _fade_time = obj_music.music_fade_time) {
-	var _method = function () {
-		obj_music.bg_music_new = _music;	
-	}
-	return _method;
-}

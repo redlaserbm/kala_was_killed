@@ -34,6 +34,11 @@ if state.active {
 	if _puzzle_solved() {
 		scr_textbox_create("solved");
 	} else {
-		scr_textbox_create("unsolved");	
+		if (state.interactions < 1) || !variable_struct_exists(obj_game.state, "itm_control") || (obj_game.state[$ "itm_control"].interactions < 1) {
+			scr_textbox_create("secret_passage");
+		} else {
+			scr_textbox_create("unsolved");	
+		}
 	}
+	state.interactions += 1;
 }

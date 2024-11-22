@@ -2,6 +2,20 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_kala_room(_text_id){
 	switch (_text_id) {
+		case "start":
+			scr_text(spr_temmie, 1, "Ok, Kala, time to play hide-and-seek...");
+			break;
+			
+		case "secret_passage":
+			scr_text(spr_temmie, 1, "Leif said something about there being a secret passage...");
+			scr_text(spr_temmie, 1, "Could this be it? If it is, though, how do I access it?");
+			break;
+			
+		case "comp_find":
+			scr_text(spr_temmie, 1, "Maybe there's something useful on her computer?");
+			scr_room_goto(rm_kala_comp);
+			break;
+			
 		case "solved":
 			scr_text(spr_temmie, 1, "So this is what you've been hiding...");
 			scr_room_goto(rm_realm);

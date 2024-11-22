@@ -22,6 +22,8 @@ function scr_warp(_scene = 2){
 			
 		case 3:
 			
+			obj_game.state.flags.temmie_alone = true;
+			
 			room_goto(rm_kala);
 			scr_obj_init();
 			

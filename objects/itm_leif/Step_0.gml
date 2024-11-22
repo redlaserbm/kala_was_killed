@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+state.standby = false;
 if state.active {
 	// Check the number of items in the player's inventory that are relevant to Leif's case
 	// Three cases based on whether player has none, some, or all of the relevant items.
