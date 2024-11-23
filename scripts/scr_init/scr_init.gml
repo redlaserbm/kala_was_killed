@@ -31,6 +31,7 @@ ds_map_add(item_equip, "Temmie's knife", 0);
 
 // Determines where to loop certain music tracks
 audio_sound_loop_start(snd_investigation_outdoors, 20.570);
+audio_sound_loop_start(snd_ending_0, 41.142);
 
 // What font will we use for drawing text? What color should that font be?
 main_font = fnt_ocr;

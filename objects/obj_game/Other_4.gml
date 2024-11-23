@@ -33,6 +33,11 @@ switch (room) {
 		break;
 	case rm_realm:
 		global.dictionary = scr_confrontation;
+		obj_music.change_music(snd_realm);
+		break;
+	case rm_credits:
+		instance_create_depth(0,0, depth, obj_credits);
+		obj_music.change_music(snd_ending_0);
 		break;
 }
 

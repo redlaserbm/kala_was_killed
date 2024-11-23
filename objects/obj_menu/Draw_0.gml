@@ -154,6 +154,10 @@ switch (menu_pos) {
 				switch_menu_pos(0);
 				break;
 			case 3:
+				scr_warp(5);
+				switch_menu_pos(0);
+				break;
+			case 4:
 				switch_menu_pos(1);
 				break;
 		}

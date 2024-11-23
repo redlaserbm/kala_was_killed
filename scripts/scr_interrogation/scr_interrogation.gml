@@ -196,7 +196,7 @@ function scr_interrogation(_text_id){
 			scr_text(spr_leif, 1, "It's... kinda complicated. To be honest, she didn't tell me a lot either, just a few hints about where she might be.");
 			scr_text(spr_leif, 1, "But you should check her apartment complex. There's a secret passage she's forged inside her room which she probably darted off to.");
 			scr_text(spr_leif, 1, "Before you go, however, you should take this. It's a copy of Kala's key.");
-			scr_text(spr_leif, 1, "Once you get in, it's up to you to figure out to access the secret passage.");
+			scr_text(spr_leif, 1, "Once you get in, it's up to you to figure out how to access the secret passage.");
 			scr_add_items(["Kala's key"]);
 			scr_goto("interrogation_end");
 			break;
@@ -206,7 +206,7 @@ function scr_interrogation(_text_id){
 			scr_text(spr_temmie, 1, "Hey, Laser.");
 			scr_text(spr_laser, 1, "Yes?");
 			scr_text(spr_temmie, 1, "I need you to stay behind and supervise the release of Leif.");
-			scr_text(spr_laser, 1, "Why are we releasing him after all the damage he di---", [scr_force_go()]);
+			scr_text(spr_laser, 1, "Why are we releasing him aga---", [scr_force_go()]);
 			scr_text(spr_temmie, 1, "Just do it, I don't want to hear any backtalk.");
 			scr_text(spr_laser, 1, "...");
 			scr_text(spr_temmie, 1, "Thanks, butler.");

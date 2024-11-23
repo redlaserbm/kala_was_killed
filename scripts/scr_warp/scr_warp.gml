@@ -21,7 +21,6 @@ function scr_warp(_scene = 2){
 			break;
 			
 		case 3:
-			
 			obj_game.state.flags.temmie_alone = true;
 			
 			room_goto(rm_kala);
@@ -29,6 +28,17 @@ function scr_warp(_scene = 2){
 			
 			scr_remove_items(["Power lines", "Road observation", "Leif's brick", "Crime scene map", "Kala's phone", "Laser"], obj_inventory, true);
 			scr_add_items(["Kala's key"], obj_inventory, true);
+			break;
+			
+			
+		case 4:
+			room_goto(rm_realm);
+			scr_obj_init();
+			break;
+			
+		case 5:
+			
+			room_goto(rm_credits);
 			break;
 			
 	}
