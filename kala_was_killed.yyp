@@ -173,6 +173,7 @@
     {"id":{"name":"snd_success","path":"sounds/snd_success/snd_success.yy",},},
     {"id":{"name":"snd_unlock","path":"sounds/snd_unlock/snd_unlock.yy",},},
     {"id":{"name":"spr_bg_black","path":"sprites/spr_bg_black/spr_bg_black.yy",},},
+    {"id":{"name":"spr_BITCH","path":"sprites/spr_BITCH/spr_BITCH.yy",},},
     {"id":{"name":"spr_black","path":"sprites/spr_black/spr_black.yy",},},
     {"id":{"name":"spr_boundary_comp","path":"sprites/spr_boundary_comp/spr_boundary_comp.yy",},},
     {"id":{"name":"spr_button_comp_pressed","path":"sprites/spr_button_comp_pressed/spr_button_comp_pressed.yy",},},

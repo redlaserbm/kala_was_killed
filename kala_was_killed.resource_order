@@ -95,6 +95,7 @@
     {"name":"snd_still_alive","order":5,"path":"sounds/snd_still_alive/snd_still_alive.yy",},
     {"name":"snd_unlock","order":1,"path":"sounds/snd_unlock/snd_unlock.yy",},
     {"name":"spr_bg_black","order":4,"path":"sprites/spr_bg_black/spr_bg_black.yy",},
+    {"name":"spr_BITCH","order":14,"path":"sprites/spr_BITCH/spr_BITCH.yy",},
     {"name":"spr_black","order":6,"path":"sprites/spr_black/spr_black.yy",},
     {"name":"spr_button_comp_pressed","order":7,"path":"sprites/spr_button_comp_pressed/spr_button_comp_pressed.yy",},
     {"name":"spr_button_comp","order":6,"path":"sprites/spr_button_comp/spr_button_comp.yy",},
