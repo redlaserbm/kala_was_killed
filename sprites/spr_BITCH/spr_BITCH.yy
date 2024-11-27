@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_BITCH",
   "bboxMode":0,
-  "bbox_bottom":0,
+  "bbox_bottom":600,
   "bbox_left":0,
-  "bbox_right":0,
+  "bbox_right":802,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"bb895d9d-57e3-420c-8bd5-4031bfe1f418","name":"bb895d9d-57e3-420c-8bd5-4031bfe1f418","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"8153ce44-2d95-4c63-8774-8d9539cb34cd","name":"8153ce44-2d95-4c63-8774-8d9539cb34cd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":64,
+  "height":601,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"82951453-7897-49b9-99cd-2d1fbd51bd59","blendMode":0,"displayName":"default","isLocked":false,"name":"82951453-7897-49b9-99cd-2d1fbd51bd59","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"07346311-6597-4de0-b9c4-8020d1b77a96","blendMode":0,"displayName":"default","isLocked":false,"name":"07346311-6597-4de0-b9c4-8020d1b77a96","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_BITCH",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"bb895d9d-57e3-420c-8bd5-4031bfe1f418","path":"sprites/spr_BITCH/spr_BITCH.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"dd25c36d-59eb-4df2-bf0e-cbcf96ee6681","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8153ce44-2d95-4c63-8774-8d9539cb34cd","path":"sprites/spr_BITCH/spr_BITCH.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"598a1f9d-cca5-428b-8962-4d3d0dcc4b0f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":64,
+  "width":803,
 }
