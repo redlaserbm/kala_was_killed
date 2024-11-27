@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":10.666667,
+  "duration":54.857143,
   "name":"snd_realm",
   "parent":{
     "name":"Music",

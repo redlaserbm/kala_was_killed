@@ -30,10 +30,13 @@ if state.active {
 		case "inventory":
 			depth = obj_itemizer.depth - 1;
 			draw_sprite(spr_news_page,0,0,0);
-			if _left_click {
+			if _left_click && active_timer > 2 {
 				scr_deactivate();
 			}
 			break;
 		
 	}
+	active_timer += 1;
+} else {
+	active_timer = 0;	
 }

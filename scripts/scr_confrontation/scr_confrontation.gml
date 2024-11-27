@@ -110,7 +110,7 @@ function scr_confrontation(_text_id){
 			scr_text(spr_laser, 1, "Hah, call me the *bomb* the way I uhhh---blow up on these bitches lol, get it Temmie? lmao");
 			scr_text(spr_temmie, 1, "...");
 			scr_text(spr_laser, 1, "Temmie?");
-			scr_text(noone, 0, "You bitchslap Laser. He kinda deserved it.");
+			scr_text(noone, 0, "You bitchslap Laser. He kinda deserved it.", [scr_play_sound(snd_bitchslap)]);
 			scr_text(spr_laser, 1, "Ow...");
 			
 			scr_text(noone, 0, "End.");
@@ -126,36 +126,70 @@ function scr_confrontation(_text_id){
 			scr_text(spr_temmie, 1, "(...)");
 			scr_text(spr_temmie, 1, "(Whatever, I couldn't stand his bitch ass anyways. Like Kala said, I can always clean up my mess later...)");
 			// Background change to CG art should occur HERE.
+			scr_room_goto(rm_ending);
+			obj_game.state.flags.ending = 0;
+			scr_goto("kala_free_bad_2");
+			break;
+			
+		case "kala_free_bad_2":
 			scr_text(noone, 0, "24 hours later...");
-			scr_text(spr_temmie, 1, "(The explosion was front page news, and there was no chance in hell the agency could cover up about what happened this time.)");
-			scr_text(spr_temmie, 1, "(Kala got away. For as much art as she posted on social media in the days after...)");
-			scr_text(spr_temmie, 1, "(She disappeared in the confusion left by the rubble of the LIA.)")
-			scr_text(spr_temmie, 1, "(We never got a bead on where she may have ran off to.)");
-			scr_text(spr_temmie, 1, "(It's hard to imagine that she wasn't living a happier life, however, after what went down.)");
+			scr_text(spr_temmie, 0, "(The explosion was front page news, and there was no chance in hell the agency could cover up what happened this time.)");
+			scr_text(spr_temmie, 0, "(Kala got away. For as much art as she posted on social media in the days after...)");
+			scr_text(spr_temmie, 0, "(She disappeared in the confusion left by the rubble of the LIA.)")
+			scr_text(spr_temmie, 0, "(We never got a bead on where she may have ran off to.)");
+			scr_text(spr_temmie, 0, "(It's hard to imagine that she wasn't living a happier life, however, after what went down.)");
 			
 			scr_text(noone, 0, "End.");
 			scr_room_goto(rm_credits);
 			break;
 		
+		//case "kala_detain":
+		//	scr_text(spr_temmie, 1, "(After everything they put her through, it was hard to imagine detaining Kala at the end of it all.)");
+		//	scr_text(spr_temmie, 1, "(At the same time, even if the agency treated her badly, I couldn't allow her to jeopardize my livelihood in the process.)");
+		//	scr_text(spr_temmie, 1, "(Not just my livelihood, but the livelihoods of my colleagues as well.)");
+		//	scr_text(spr_temmie, 1, "(The agency was quick to raid her apartment. As it turns out...)");
+		//	scr_text(spr_temmie, 1, "(Kala left behind an extensive journal of notes on how to properly rig up Laser...)");
+		//	scr_text(spr_temmie, 1, "(Unfortunately, err, thankfully, we figured out with the notes how to \"disarm\" him, too.)");
+		//	scr_text(spr_temmie, 1, "(Kala was hauled off to jail for a long time. How long? I didn't really care. I had other pressing matters to tend to.)");
+			
+		//	scr_text(spr_laser, 1, "So you're telling me that, like, I was literally a ticking timebomb?");
+		//	scr_text(spr_temmie, 1, "Yes.");
+		//	// CG art should occur HERE.
+		//	scr_text(spr_laser, 1, "Hah, call me the *bomb* the way I uhhh---blow up on these bitches lol, get it Temmie? lmao");
+		//	scr_text(spr_temmie, 1, "...");
+		//	scr_text(spr_temmie, 1, "Temmie?");
+		//	scr_text(noone, 0, "You bitchslap Laser. He kinda deserved it.");
+		//	scr_text(spr_laser, 1, "Ow...");
+			
+		//	scr_text(noone, 0, "End.");
+		//	scr_room_goto(rm_credits);
+		//	break;
+			
 		case "kala_detain":
+			scr_text(spr_temmie, 1, "It's time to put an end to your shenanigans, Kala.");
 			scr_text(spr_temmie, 1, "(After everything they put her through, it was hard to imagine detaining Kala at the end of it all.)");
 			scr_text(spr_temmie, 1, "(At the same time, even if the agency treated her badly, I couldn't allow her to jeopardize my livelihood in the process.)");
 			scr_text(spr_temmie, 1, "(Not just my livelihood, but the livelihoods of my colleagues as well.)");
-			scr_text(spr_temmie, 1, "(The agency was quick to raid her apartment. As it turns out...)");
-			scr_text(spr_temmie, 1, "(Kala left behind an extensive journal of notes on how to properly rig up Laser...)");
-			scr_text(spr_temmie, 1, "(Unfortunately, err, thankfully, we figured out with the notes how to \"disarm\" him, too.)");
-			scr_text(spr_temmie, 1, "(Kala was hauled off to jail for a long time. How long? I didn't really care. I had other pressing matters to tend to.)");
+			scr_text(spr_temmie, 1, "(But, as I went in to detain her...)");
+			// CG art should occur HERE
+			scr_text(spr_kala, 0, "Wrong move.");
+			scr_text(noone, 0, "Kala dodges your lunge, and in doing so, causes you to lose your balance and fall.", [scr_play_sound(snd_body_fall)]);
+			obj_game.state.flags.ending = 1;
+			scr_room_goto(rm_ending);
+			scr_goto("kala_detain_1");
+			break;
 			
-			scr_text(spr_laser, 1, "So you're telling me that, like, I was literally a ticking timebomb?");
-			scr_text(spr_temmie, 1, "Yes.");
-			// CG art should occur HERE.
-			scr_text(spr_laser, 1, "Hah, call me the *bomb* the way I uhhh---blow up on these bitches lol, get it Temmie? lmao");
+		case "kala_detain_1":
+			scr_text(spr_temmie, 1, "Ow...");
+			scr_text(spr_kala, 0, "Sorry Temmie. I can't have you getting in my way.");
 			scr_text(spr_temmie, 1, "...");
-			scr_text(spr_temmie, 1, "Temmie?");
-			scr_text(noone, 0, "You bitchslap Laser. He kinda deserved it.");
-			scr_text(spr_laser, 1, "Ow...");
+			scr_text(noone, 0, "Kala knocks you out, and then gets away.", [scr_play_sound(snd_punch), scr_draw_sprite(spr_bg_black, 0,0,0)]);
+			scr_remove_from_room(room, itm_end_draw);
+			scr_goto("kala_detain_2");
+			break;
 			
-			scr_text(noone, 0, "End.");
+		case "kala_detain_2":
+			scr_text(noone, 0, "End.", [scr_draw_sprite(spr_bg_black, 0,0,0)]);
 			scr_room_goto(rm_credits);
 			break;
 	}

@@ -42,3 +42,16 @@ function scr_force_go() {
 	}
 	return _method;
 }
+
+// NOTE: Do NOT use this to play looping music
+function scr_play_sound(_sound) {
+	times_played = 0;
+	e_sound = _sound;
+	var	_method = function() {
+		if times_played < 1 {
+			audio_play_sound(e_sound, 1, false, global.settings.volume*global.settings.volume_sfx);	
+			times_played += 1;
+		}
+	}
+	return _method;
+}

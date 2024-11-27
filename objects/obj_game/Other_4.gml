@@ -26,6 +26,10 @@ switch (room) {
 	case rm_kala:
 		global.dictionary = scr_kala_room;
 		obj_music.change_music(snd_kala_room);
+		if !state.flags.kala_unlock {
+			audio_play_sound(snd_unlock, 1, false);	
+			state.flags.kala_unlock = true;
+		}
 		break;
 	case rm_kala_comp:
 		global.dictionary = scr_kala_room;

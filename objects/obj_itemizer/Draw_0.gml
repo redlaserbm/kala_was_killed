@@ -51,7 +51,7 @@ var _old_ind = highlighted_ind;
 if fudge_factor >= 3 {
 	var _mx = mouse_x;
 	var _my = mouse_y;
-	var _left_click = mouse_check_button_pressed(mb_left);
+	var _left_click = mouse_check_button_pressed(mb_left) && ((instance_number(obj_menu) < 1) ||obj_menu.hover_pos < 0);
 	
 	highlighted_ind = -1;
 	for (var _i = 0; _i < array_length(active_items); _i++){

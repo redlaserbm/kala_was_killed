@@ -10,7 +10,7 @@ function scr_item_examination(_text_id) {
 				scr_text(spr_temmie, 1, "I will stab you with this.");
 				scr_text(spr_laser, 1, "This is why I don't trust you.");
 			} else {
-				scr_text(spr_temmie, 1, "I'd get so much more done if the department just let me repeatedly stab the suspects...");
+				scr_text(spr_temmie, 1, "I'd get so much more done if the department just let me stab the suspects...");
 				break;
 			}
 			// scr_open_inventory();

@@ -8,8 +8,11 @@ ds_map_add(room_items, rm_elevator, [itm_panel, itm_poster_laser, itm_poster_tem
 ds_map_add(room_items, rm_car_interior, [itm_kala_corpse, itm_brick, itm_boundary, itm_phone]);
 ds_map_add(room_items, rm_road, [itm_leif, itm_tree, itm_car, itm_jakkop]);
 
-ds_map_add(room_items, rm_kala, [itm_comp, itm_journal, itm_news, itm_mechanism]);
+// ds_map_add(room_items, rm_kala, [itm_comp, itm_journal, itm_news, itm_mechanism]);
+ds_map_add(room_items, rm_kala, [itm_frame, itm_journal, itm_news, itm_comp]);
+ds_map_add(room_items, rm_kala_frame, [itm_boundary_kala, itm_button_top, itm_button_middle, itm_button_bottom, itm_frame_state_draw]);
 ds_map_add(room_items, rm_kala_comp, [itm_boundary_comp, itm_control, itm_discord]);
+ds_map_add(room_items, rm_ending, [itm_end_draw]);
 
 active_items = []; // Array of items in the current room.
 created_items = []; // This tracks the instances of the items that were actually created. 

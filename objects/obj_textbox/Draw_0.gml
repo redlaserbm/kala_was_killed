@@ -71,7 +71,10 @@ if !setup {
 draw_set_font(global.font);
 
 // As silly as this looks, I need a way of preventing textbox code from working if we are not in the game state.
-if state.active {
+if state.active && instance_number(obj_transition) < 1 {
+	for (var _i = 0; _i < array_length(methods[page]); _i++) {
+		methods[page][_i]();	
+	}
 	// Typewriter effect
 	// Don't draw text while a transition between scenes is occuring...
 	if draw_char < text_length[page] && global.fade_time == 0 {
@@ -210,10 +213,10 @@ if state.active {
 			draw_sprite_ext(spr_cursor, 0, _textbox_x + textbox_x_offset + textbox_width - 40, _textbox_y + textbox_y_offset + textbox_height - 40, 1, 1, 0, c_white, alpha);
 		}
 	}
-
-	for (var _i = 0; _i < array_length(methods[page]); _i++) {
-		methods[page][_i]();	
-	}
+	
+	//for (var _i = 0; _i < array_length(methods[page]); _i++) {
+	//	methods[page][_i]();	
+	//}
 }
 
 state.page = page;

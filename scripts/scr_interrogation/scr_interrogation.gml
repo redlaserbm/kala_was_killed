@@ -215,7 +215,6 @@ function scr_interrogation(_text_id){
 			scr_text(spr_temmie, 1, "Yes.");
 			scr_text(spr_laser, 1, "*sigh*");
 			scr_goto("interrogation_end_1");
-			scr_remove_items(["Laser", "Power lines", "Road observation", "Leif's brick", "Crime scene map", "Kala's phone"]);
 			break;
 			
 			
@@ -225,6 +224,7 @@ function scr_interrogation(_text_id){
 			scr_text(spr_temmie, 1, "(I need to figure out Kala's whereabouts...)");
 			scr_text(spr_temmie, 1, "(This key from Leif will get me into her apartment room...)");
 			scr_text(spr_temmie, 1, "(But from there, I'll need to figure out how to access that secret passage...)");
+						scr_remove_items(["Laser", "Power lines", "Road observation", "Leif's brick", "Crime scene map", "Kala's phone", "Police report"]);
 			scr_room_goto(rm_kala);
 			break;
 			

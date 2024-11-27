@@ -8,3 +8,4 @@ if !struct_exists(state, "context") {
 	state.context = "first_view";
 }
 depth = obj_itemizer.depth + 1;
+active_timer = 0;

@@ -26,13 +26,13 @@ if state.active || state.standby {
 	// Draw the main text for this window
 	draw_text_ext_color(_text_x, _text_y, text, 0, 640, c_black, c_black, c_black, c_black, 1);
 	
-	// Draw the buttons for this window
-	var _button_x = offset_x + window_border;
-	var _button_y = _text_y + string_height(text) + button_sep;
-	
 	var _num_buttons = array_length(buttons);
-	var _space = window_width - 2*window_border;
+	var _space = min(window_width - 2*window_border, max_button_width);
 	var _button_width = (_space - (_num_buttons - 1)*button_spacing)/_num_buttons;
+	
+	// Draw the buttons for this window
+	var _button_x = offset_x + window_width/2 - _space/2;
+	var _button_y = _text_y + string_height(text) + button_sep;
 	
 	
 	for (var _i = 0; _i < _num_buttons; _i++) {
@@ -59,18 +59,9 @@ if state.active || state.standby {
 			
 			switch (_i) {
 				case 0:
-					obj_game.state[$ object_get_name(itm_mechanism)].config[0] = (obj_game.state[$ object_get_name(itm_mechanism)].config[0] + 1) % 3;
-					obj_game.state[$ object_get_name(itm_mechanism)].config[1] = (obj_game.state[$ object_get_name(itm_mechanism)].config[1] + 1) % 3;
-					obj_game.state[$ object_get_name(itm_mechanism)].config[2] = (obj_game.state[$ object_get_name(itm_mechanism)].config[2] + 1) % 3;
-					break;
-					
-				case 1:
-					obj_game.state[$ object_get_name(itm_mechanism)].config[1] = (obj_game.state[$ object_get_name(itm_mechanism)].config[1] + 2) % 3;
-					obj_game.state[$ object_get_name(itm_mechanism)].config[2] = (obj_game.state[$ object_get_name(itm_mechanism)].config[2] + 2) % 3;
-					break;
-					
-				case 2:
-					obj_game.state[$ object_get_name(itm_mechanism)].config[2] = (obj_game.state[$ object_get_name(itm_mechanism)].config[2] + 1) % 3;
+					obj_game.state[$ object_get_name(itm_frame)].config[0] = 1;
+					obj_game.state[$ object_get_name(itm_frame)].config[1] = 0;
+					obj_game.state[$ object_get_name(itm_frame)].config[2] = 1;
 					break;
 			}
 			

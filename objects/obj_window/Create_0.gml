@@ -24,7 +24,7 @@ text_border_y = 16;
 
 // For simplicity, I'll support a finite number of buttons to appear below the display text
 // If there are multiple buttons, they will appear in a row!
-buttons = ["Control 1", "Control 2", "Control 3"];
+buttons = ["Yes"];
 
 button_height = 48;
 
@@ -43,7 +43,7 @@ draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
 if !variable_instance_exists(self, "text") {
-	text = "Controls for secret door";	
+	text = "Reset Portrait?";	
 }
 
 active_timer = 0;

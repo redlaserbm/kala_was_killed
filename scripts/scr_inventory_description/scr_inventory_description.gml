@@ -8,7 +8,7 @@ function scr_inventory_description(_text_id){
 			break;
 			
 		case "Laser":
-			_return_text = "Your \"trusty\" forensic sidekick. Hold-click to ask him for help.";
+			_return_text = "Your \"trusty\" forensic sidekick. Click to ask him for help.";
 			break;
 			
 		case "Chocolate cake":
@@ -56,11 +56,15 @@ function scr_inventory_description(_text_id){
 			break;
 			
 		case "Newspaper":
-			_return_text = "A local newspaper from the time Laser's house was blown to smithereens. Hold-click to examine.";
+			_return_text = "A local newspaper from the time Laser's house was blown to smithereens. Click to examine.";
 			break;
 			
 		case "Kala's journal":
-			_return_text = "Kala's personal journal, covering her personal life starting from a few years back. Hold-click to examine.";
+			_return_text = "Kala's personal journal, covering her personal life starting from a few years back. Click to examine.";
+			break;
+			
+		case "Kala's key":
+			_return_text = "Gains access to Kala's apartment. Also takes up space in your inventory. (Sorry!)";
 			break;
 	}
 	return _return_text;

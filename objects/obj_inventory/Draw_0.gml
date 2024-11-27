@@ -16,7 +16,7 @@ if !setup {
 var _inv_x = camera_get_view_x(view_camera[0]);
 var _inv_y = camera_get_view_y(view_camera[0]);
 
-var _click = (active_timer > 5) && ((mouse_check_button_released(mb_left) || ((hold_timer > hold_threshold) && state.detective == noone )) && point_in_rectangle(mouse_x, mouse_y, 0, 0, 640, 480));
+var _click = (active_timer > 5) && mouse_check_button_pressed(mb_left);
 var _hold_click = mouse_check_button(mb_left);
 
 if instance_number(itm_map) < 1 && scr_check_item("Crime scene map") {
@@ -115,43 +115,18 @@ if state.active {
 	
 	// This code concerns interacting with items in the inventory using the mouse
 	if _click {
-		clicks += 1;
-		if (click_pos == -1) {
-			// We are not trying to combine items yet, we're just selecting the first candidate for combining.
-			click_pos = hover_pos;
-			
-			if click_pos > -1 && (state.detective != noone) {
+		click_pos = hover_pos;
+		if click_pos > -1 { 
+			if (state.detective != noone) {
 				// We are in "detective" mode and we selected an item. Is the item the right one?
 				scr_deactivate();
 				var _text_id = scr_context_poll(state.detective, state.inventory[click_pos]);
 				state.previous_active = noone;
 				scr_textbox_create(_text_id);
 				obj_menu.menu_pos = 0;
-			}
-			
-			// If we held the mouse button for long enough, we actually want to explore the item in more detail too!
-			if (hold_timer >= hold_threshold) && (state.detective == noone) {
+			} else {
 				_examine_item();
 				click_pos = -1;
-			}
-		} else {
-			// We *are* trying to combine items now!
-			if (hover_pos != click_pos) && (hover_pos != -1) {
-				show_debug_message("GOT TO HERE! 1");
-				var _item_1 = ds_map_find_value(global.item_index, state.inventory[hover_pos]);
-				var _item_2 = ds_map_find_value(global.item_index, state.inventory[click_pos]);
-				
-				scr_combine_items(_item_1, _item_2);
-				
-			} else if hover_pos == -1 && (obj_menu.hover_pos == noone) {
-				click_pos = -1;	
-			} else if (hover_pos == click_pos) {
-				if (hold_timer >= hold_threshold) && (state.detective == noone) {
-					_examine_item();
-				} else {
-					click_pos = -1;
-				}
-				// In this case, let's examine the object in more detail.
 			}
 		}
 	}

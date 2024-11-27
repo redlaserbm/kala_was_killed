@@ -46,9 +46,15 @@ state.flags = {
 	
 	temmie_alone: false,
 	
+	frame_look: false,
+	frame_solved: false,
+	
 	kala_start: false,
+	kala_unlock: false,
 
-	realm_start: false
+	realm_start: false,
+	
+	ending: 0,
 }
 
 // Set the loop points for audio tracks in the game (if necessary)
